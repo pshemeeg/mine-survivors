@@ -4,14 +4,14 @@
 
 ## 📚 Spis treści
 
-- [Opis projektu](README.md#opis-projektu)
-- [Cel projektu 🎯](README.md#cel-projektu-)
-- [Stack technologiczny 💻](README.md#stack-technologiczny-)
-- [Mechaniki rozgrywki 🎮](README.md#mechaniki-rozgrywki-)
-- [Klasy postaci 👷‍♂️](README.md#klasy-postaci-%EF%B8%8F)
-- [Architektura kodu 🏗️](README.md#architektura-kodu-%EF%B8%8F)
-- [Diagram UML 🧜‍♀️](README.md#diagram-uml-%EF%B8%8F)
-- [Licencja 📄](README.md#licencja-)
+- [Opis projektu](#opis-projektu)
+- [Cel projektu 🎯](#cel-projektu-)
+- [Stack technologiczny 💻](#stack-technologiczny-)
+- [Mechaniki rozgrywki 🎮](#mechaniki-rozgrywki-)
+- [Klasy postaci 👷‍♂️](#klasy-postaci-%EF%B8%8F)
+- [Architektura kodu 🏗️](#architektura-kodu-%EF%B8%8F)
+- [Diagram UML 🧜‍♀️](#diagram-uml-%EF%B8%8F)
+- [Licencja 📄](#licencja-)
 
 ## Opis projektu
 
@@ -21,7 +21,7 @@
 
 - Nauka programowania obiektowego poprzez praktyczną implementację gry.
 - Rozwój portfolio i prezentacja umiejętności w tworzeniu gier.
-- Eksperymentowanie z silnikiem **Godot**, SQLite, JSON oraz innymi technologiami.
+- Eksperymentowanie z silnikiem **Godot** oraz innymi technologiami.
 
 ## Stack technologiczny 💻
 
@@ -31,6 +31,7 @@
 - **Grafika:** Aseprite (pixel art, 2D top-down)
 - **Audio:** Audacity (edycja dźwięków, chiptune 16-bit)
 - **Narzędzia:** Visual Studio / Git, GitHub
+- **Gotowe assety** Itch.io, Godot asset library
 
 ## Mechaniki rozgrywki 🎮
 
