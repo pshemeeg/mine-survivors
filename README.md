@@ -43,6 +43,10 @@
 - **Obrona maszyn:** Fale przeciwników atakują maszyny – wymaga strategicznego podejścia. 🛡️
 - **Eksploracja kopalni:** Decyduj, czy chronić maszyny, czy ryzykować zejście na niższe poziomy, gdzie czekają cenniejsze surowce i trudniejsi przeciwnicy. 🌑
 
+## Iterfejs
+
+**Iterfjes** pokazuje ilość hp
+
 ## Klasy postaci 👷‍♂️
 
 Gra oferuje trzy klasy postaci, z których każda specjalizuje się we współpracy z maszynami wydobywczymi:
