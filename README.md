@@ -27,7 +27,7 @@
 
 - **Silnik gry:** Godot Engine 4.4.1 (Mono) – wykorzystujemy wbudowany Godot API do obsługi logiki gry oraz zapisu i odczytu stanu gry.
 - **Język programowania:** C#
-- zapis **ustawień** i **stanu gry** odbywa się za pomocą wbudowanego systemu Godota (ConfigFile i pliki .save)
+- Zapis **ustawień** i **stanu gry** odbywa się za pomocą wbudowanego systemu Godota (ConfigFile i pliki .save)
 - **Grafika:** Aseprite (pixel art, 2D top-down)
 - **Audio:** Audacity (edycja dźwięków, chiptune 16-bit)
 - **Narzędzia:** Visual Studio / Git, GitHub
