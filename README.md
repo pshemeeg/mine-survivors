@@ -32,6 +32,7 @@
 - **Audio:** Audacity (edycja dźwięków, chiptune 16-bit)
 - **Narzędzia:** Visual Studio / Git, GitHub
 - **Gotowe assety** Itch.io, Godot asset library
+- **Wsparcie AI:** ChatGPT / OpenAI o1, OpenAI o3-mini
 
 ## Mechaniki rozgrywki 🎮
 
