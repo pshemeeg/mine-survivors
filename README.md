@@ -45,7 +45,7 @@
 
 ## Iterfejs
 
-**Iterfjes** pokazuje ilość hp
+**Iterfjes** pokazuje ilość hp, ilość amunicji
 
 ## Klasy postaci 👷‍♂️
 
