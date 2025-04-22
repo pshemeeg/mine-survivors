@@ -1,4 +1,4 @@
-# Mine Survivors 🚇⛏️
+# Mine Survivors 🚇⛏️ ///
 
 **Mine Survivors** to dynamiczna gra akcji inspirowana tytułami takimi jak *Vampire Survivors* oraz *Brotato*. Akcja gry rozgrywa się w podziemnych korytarzach kopalń, gdzie wcielasz się w górnika eksplorującego tajemnicze tunele, zbierającego surowce oraz odpierającego fale przeciwników. Gra stanowi również świetną okazję do nauki programowania obiektowego i rozwoju portfolio.
 
