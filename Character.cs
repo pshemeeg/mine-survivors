@@ -36,5 +36,11 @@ public partial class Character : CharacterBody2D
         QueueFree();
     }
 
+    // metoda wykonywania ataku
+    public virtual void Attack(Character target)
+    {
+        target.TakeDamage(AttackDamage);
+    }
+
 
 }
