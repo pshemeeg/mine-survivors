@@ -96,159 +96,159 @@ Diagram przedstawia relacje między klasami w grze oraz wykorzystanie paradygmat
 ```mermaid
 
 classDiagram
-    class Character {
-        - health: int
-        - Movementspeed: int
-        - attackDamage: int
-        + getHealth() : int
-        + setHealth(value: int): void
-        + getSpeed(): int
-        + getAttack(): int
-        + takeDamage(amount: int): void
-        + death(): void
-    }
-    %% Klasa gracza oraz jej rozszerzenia
-    class Player{
-        - level: int
-        - experience: int
-        + move(): void
-        + interact(machine: Machine): void
-        + collectItem(item: Item): void
-        + levelUp(): void
-        + useSpecialAbility(): void
-    }
-    Character <|-- Player : dziedziczy
+	class Character {
+		- health: int
+		- Movementspeed: int
+		- attackDamage: int
+		+ getHealth() : int
+		+ setHealth(value: int): void
+		+ getSpeed(): int
+		+ getAttack(): int
+		+ takeDamage(amount: int): void
+		+ death(): void
+	}
+	%% Klasa gracza oraz jej rozszerzenia
+	class Player{
+		- level: int
+		- experience: int
+		+ move(): void
+		+ interact(machine: Machine): void
+		+ collectItem(item: Item): void
+		+ levelUp(): void
+		+ useSpecialAbility(): void
+	}
+	Character <|-- Player : dziedziczy
 
-    class OperatorMaszyn {
-        - boostDuration: float
-        - boostMultiplier: float
-        + turboSterowanie(): void
-        + enhanceMachines(machines: Machine[]): void
-    }
-    Player <|-- OperatorMaszyn : dziedziczy
+	class OperatorMaszyn {
+		- boostDuration: float
+		- boostMultiplier: float
+		+ turboSterowanie(): void
+		+ enhanceMachines(machines: Machine[]): void
+	}
+	Player <|-- OperatorMaszyn : dziedziczy
 
-    class MechanikKopalni {
-        - repairAmount: int
-        - durabilityBonus: float
-        + szybkaNaprawa(): void
-        + repairNearbyMachines(radius: float): void
-    }
-    Player <|-- MechanikKopalni : dziedziczy
+	class MechanikKopalni {
+		- repairAmount: int
+		- durabilityBonus: float
+		+ szybkaNaprawa(): void
+		+ repairNearbyMachines(radius: float): void
+	}
+	Player <|-- MechanikKopalni : dziedziczy
 
-    class EksplozjonistaGórniczy {
-        - explosionRadius: float
-        - explosionDamage: int
-        + lancuchowaDetonacja(): void
-        + placeBomb(): void
-        + detonateAll(): void
-    }
-    Player <|-- EksplozjonistaGórniczy : dziedziczy
+	class EksplozjonistaGórniczy {
+		- explosionRadius: float
+		- explosionDamage: int
+		+ lancuchowaDetonacja(): void
+		+ placeBomb(): void
+		+ detonateAll(): void
+	}
+	Player <|-- EksplozjonistaGórniczy : dziedziczy
 
-    %% Klasa przeciwnika
-    class Enemy {
-        - detectionRange: float
-        - attackRange: float
-        - dropRate: float
-        + AI(): void
-        + move(): void
-        + targetMachine(machine: Machine): void
-        + targetPlayer(player: Player): void
-        + dropLoot(): Item[]
-    }
-    Character <|-- Enemy : dziedziczy
+	%% Klasa przeciwnika
+	class Enemy {
+		- detectionRange: float
+		- attackRange: float
+		- dropRate: float
+		+ AI(): void
+		+ move(): void
+		+ targetMachine(machine: Machine): void
+		+ targetPlayer(player: Player): void
+		+ dropLoot(): Item[]
+	}
+	Character <|-- Enemy : dziedziczy
 
-    %% Klasy związane z maszynami
-    class Machine{
-        - durability: int
-        - maxDurability: int
-        - operationTime: float
-        + operate(): void
-        + takeDamage(amount: int): void
-        + repair(amount: int): void
-        + upgrade(): void
-        + breakdown(): void
-    }
-    class ResourceMachine{
-        - resourceType: string
-        - productionRate: float
-        - storageCapacity: int
-        + produceResource(): Material
-        + getStorageLevel(): int
-        + collectResources(): Material[]
-    }
-    class DefenseMachine{
-        - attack: int
-        - attackSpeed: float
-        - attackRange: float
-        + scanForEnemies(): Enemy[]
-        + changeTargetPriority(): void
-        + attack(target: IDamageable): void
-    }
+	%% Klasy związane z maszynami
+	class Machine{
+		- durability: int
+		- maxDurability: int
+		- operationTime: float
+		+ operate(): void
+		+ takeDamage(amount: int): void
+		+ repair(amount: int): void
+		+ upgrade(): void
+		+ breakdown(): void
+	}
+	class ResourceMachine{
+		- resourceType: string
+		- productionRate: float
+		- storageCapacity: int
+		+ produceResource(): Material
+		+ getStorageLevel(): int
+		+ collectResources(): Material[]
+	}
+	class DefenseMachine{
+		- attack: int
+		- attackSpeed: float
+		- attackRange: float
+		+ scanForEnemies(): Enemy[]
+		+ changeTargetPriority(): void
+		+ attack(target: IDamageable): void
+	}
 
-    Machine <|-- ResourceMachine : dziedziczy
-    Machine <|-- DefenseMachine : dziedziczy
+	Machine <|-- ResourceMachine : dziedziczy
+	Machine <|-- DefenseMachine : dziedziczy
 
-    %% Klasa bazowa dla przedmiotów
-    class Item {
-        - id: int
-        - name: string
-        - description: string
-        - icon: string
-        + getId(): int
-        + getName(): string
-        + getDescription(): string
-        + getIcon(): string
-    }
+	%% Klasa bazowa dla przedmiotów
+	class Item {
+		- id: int
+		- name: string
+		- description: string
+		- icon: string
+		+ getId(): int
+		+ getName(): string
+		+ getDescription(): string
+		+ getIcon(): string
+	}
 
-    class ExperiencePoint{
-        - value: int
-        + applyExperience(player: Player): void
-        + getValue(): int
-    }
-    Item <|-- ExperiencePoint : dziedziczy
+	class ExperiencePoint{
+		- value: int
+		+ applyExperience(player: Player): void
+		+ getValue(): int
+	}
+	Item <|-- ExperiencePoint : dziedziczy
 
-    class Material{
-        - materialType: string
-        - rarity: int
-        - value: int
-        + getMaterialType(): string
-        + getRarity(): int
-        + getValue(): int
-    }
-    Item <|-- Material : dziedziczy
+	class Material{
+		- materialType: string
+		- rarity: int
+		- value: int
+		+ getMaterialType(): string
+		+ getRarity(): int
+		+ getValue(): int
+	}
+	Item <|-- Material : dziedziczy
 
-    %% Interfejsy
-    class IDamageable {
-        <<interface>>
-        + health: int
-        + takeDamage(amount: int): void
-        + isDead(): boolean
-    }
-    class IAttack {
-        <<interface>>
-        + attackDamage: int
-        + attackRange: float
-        + attack(target: IDamageable): void
-    }
-    class ICollectible {
-        <<interface>>
-        + collectionRadius: float
-        + isCollected: boolean
-        + collect(player: Player): void
-    }
+	%% Interfejsy
+	class IDamageable {
+		<<interface>>
+		+ health: int
+		+ takeDamage(amount: int): void
+		+ isDead(): boolean
+	}
+	class IAttack {
+		<<interface>>
+		+ attackDamage: int
+		+ attackRange: float
+		+ attack(target: IDamageable): void
+	}
+	class ICollectible {
+		<<interface>>
+		+ collectionRadius: float
+		+ isCollected: boolean
+		+ collect(player: Player): void
+	}
 
-    %% Relacje implementacji interfejsów
-    Character ..|> IDamageable : realizuje
-    Machine ..|> IDamageable : realizuje
-    Player ..|> IAttack : realizuje
-    Enemy ..|> IAttack : realizuje
-    DefenseMachine ..|> IAttack : realizuje
-    Item ..|> ICollectible : realizuje
-    %% Dodatkowe relacje
-    Player "1" --> "*" Item : używa
-    Player "1" --> "*" Machine : używa
-    ResourceMachine --> Material : zawiera
-    Enemy "*" --> "1..*" Machine : używa
+	%% Relacje implementacji interfejsów
+	Character ..|> IDamageable : realizuje
+	Machine ..|> IDamageable : realizuje
+	Player ..|> IAttack : realizuje
+	Enemy ..|> IAttack : realizuje
+	DefenseMachine ..|> IAttack : realizuje
+	Item ..|> ICollectible : realizuje
+	%% Dodatkowe relacje
+	Player "1" --> "*" Item : używa
+	Player "1" --> "*" Machine : używa
+	ResourceMachine --> Material : zawiera
+	Enemy "*" --> "1..*" Machine : używa
 
 ```
 
