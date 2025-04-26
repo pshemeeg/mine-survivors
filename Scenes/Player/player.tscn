@@ -70,7 +70,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_ikmo3")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle",
 "speed": 4.0
 }, {
 "frames": [{
@@ -116,8 +116,7 @@ shape = SubResource("RectangleShape2D_ci3qc")
 position = Vector2(1, -11)
 scale = Vector2(1.00578, 0.991316)
 sprite_frames = SubResource("SpriteFrames_c2lsw")
-animation = &"run"
-autoplay = "default"
-frame_progress = 0.818758
+animation = &"idle"
+autoplay = "idle"
 
 [node name="Camera2D" type="Camera2D" parent="."]

@@ -14,7 +14,7 @@ public partial class Character : CharacterBody2D
         if (direction == Vector2.Zero)
         {
             Velocity = Vector2.Zero;
-            animatedSprite.Animation = "default";
+            animatedSprite.Animation = "idle";
         }
         else
         {
