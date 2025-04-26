@@ -1,6 +1,5 @@
 using Godot;
 
-namespace minesurvivors.Scenes.Enemy;
 // Klasa reprezentująca przeciwnika, dziedzicząca po Character
 public partial class Enemy : Character
 {

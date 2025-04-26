@@ -107,7 +107,6 @@ height = 13.309
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(1.32705, 1.05192)
 script = ExtResource("1_fuf5c")
-MovementSpeed = 200.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -11)
@@ -118,7 +117,6 @@ autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.753551, -6.6545)
-scale = Vector2(1, 1)
 shape = SubResource("CapsuleShape2D_a3d8c")
 
 [node name="Camera2D" type="Camera2D" parent="."]
