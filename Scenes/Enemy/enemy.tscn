@@ -3,9 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://dtyryk2hfyudh" path="res://Assets/Art/Enemies/goblin_.png" id="1_mw074"]
 [ext_resource type="Script" uid="uid://bvmftppvlg0uo" path="res://Scenes/Enemy/Enemy.cs" id="1_nvvbs"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nvvbs"]
-size = Vector2(9, 11)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_2t2r4"]
 atlas = ExtResource("1_mw074")
 region = Rect2(0, 0, 32, 32)
@@ -103,14 +100,19 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nvvbs"]
+radius = 4.0
+height = 14.0
+
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_nvvbs")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 4.5)
-shape = SubResource("RectangleShape2D_nvvbs")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_u4wq1")
-animation = &"run"
+animation = &"idle"
 autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("CapsuleShape2D_nvvbs")

@@ -3,9 +3,6 @@
 [ext_resource type="Script" uid="uid://ckirlv1ch0nyd" path="res://Scenes/Player/Player.cs" id="1_fuf5c"]
 [ext_resource type="Texture2D" uid="uid://nnwnqfdeykve" path="res://Assets/Art/Player/mPlayer_ [dwarf].png" id="1_s88rd"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ci3qc"]
-size = Vector2(10, 14)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_amsg3"]
 atlas = ExtResource("1_s88rd")
 region = Rect2(0, 32, 32, 32)
@@ -103,14 +100,14 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a3d8c"]
+radius = 4.52131
+height = 13.309
+
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(1.32705, 1.05192)
 script = ExtResource("1_fuf5c")
 MovementSpeed = 200.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -6)
-shape = SubResource("RectangleShape2D_ci3qc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -11)
@@ -118,5 +115,10 @@ scale = Vector2(1.00578, 0.991316)
 sprite_frames = SubResource("SpriteFrames_c2lsw")
 animation = &"idle"
 autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.753551, -6.6545)
+scale = Vector2(1, 1)
+shape = SubResource("CapsuleShape2D_a3d8c")
 
 [node name="Camera2D" type="Camera2D" parent="."]
