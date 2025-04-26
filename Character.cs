@@ -8,7 +8,7 @@ public partial class Character : CharacterBody2D
     [Export] public int AttackDamage { get; set; }
     [Export] public float MovementSpeed { get; set; }
     // metoda do obliczania movemnetu
-    protected void ProcessMovement(Vector2 direction, float delta)
+    protected void ProcessMovement(Vector2 direction, double delta)
     {
         if (direction == Vector2.Zero)
         {
