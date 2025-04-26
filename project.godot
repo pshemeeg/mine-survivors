@@ -12,10 +12,7 @@ config_version=5
 
 config/name="mine survivors"
 config/features=PackedStringArray("4.4", "C#", "GL Compatibility")
-<<<<<<< HEAD
-=======
 boot_splash/bg_color=Color(0.247008, 0.396921, 1, 1)
->>>>>>> Leonard
 config/icon="res://icon.svg"
 
 [display]
