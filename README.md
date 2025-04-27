@@ -12,6 +12,7 @@
 - [Klasy postaci 👷‍♂️](#klasy-postaci-%EF%B8%8F)
 - [Architektura kodu 🏗️](#architektura-kodu-%EF%B8%8F)
 - [Diagram UML 🧜‍♀️](#diagram-uml-%EF%B8%8F)
+- [Aktualizacje / Rozwój 🚀](#aktualizacje-)
 - [Licencja 📄](#licencja-)
 
 ## Opis projektu
@@ -292,6 +293,49 @@ classDiagram
 	Enemy "*" --> "1..*" Machine : używa
 
 ```
+
+## Aktualizacje / Rozwój 🚀
+
+Poniżej znajduje się lista aktualnych postępów oraz planowanych kierunków rozwoju **Mine Survivors**. Pamiętaj, że plany mogą ulec zmianie w trakcie tworzenia gry.
+
+**Legenda:**
+
+* ✅ - Zaimplementowane
+* 🚧 - W trakcie implementacji
+* ⏳ - W trakcie planowania
+* ❓ - Do rozważenia
+
+### Lista aktualnych postępów
+
+* ✅   Utworzenie projektu
+* ✅   Stworzenie i podłączenie się do repozytorium zdalnego
+* ✅   Integracja silnika **Godot** z systemem kontroli wersji **git**
+* ✅   Konfiguracja projektu (ustawienia wyświetlania, domyślne ustawienia sterowania, warstwy fizyki)
+* ✅   Utworzenie klasy głównej `Character` z implementacją podstawowych metod
+* ✅   Utworzenie klasy `Player` z obsługą sterowania
+* ✅   Utworzenie klasy `Enemy` goniącego za `Player`
+* ✅   Implementacją utworzonych klas w silniku
+
+### Lista planowanych zadań
+
+* ⏳   Utworzenie interfejsów `IAttack` oraz `IDamageable`
+* ⏳   Implementacja **systemu walki** opartego na interfejsach
+* ⏳   Zaimportowanie i konfiguracja *TileSet*
+* ⏳   Utworzenie pierwszego grywalnego poziomu
+* ⏳   Utworzenie klasy `Item`
+* ⏳   Utworzenie interfejsu `ICollectible`
+* ⏳   Utworzenie i implementacja klasy `ExperiencePoint`
+* ⏳   Utworzenie i implementacja klasy `Material`
+* ⏳   Utworzenie scen **Interfejsu**
+* ⏳   Stworzenie **klas postaci** z ich **unikalnymi umiejętnościami**
+
+### Lista rozważanych mechanik i funkcjonalności (opcjonalne)
+
+* ❓   System broni opartych na klasie `Weapon` - Dodanie różnorodności w walce i taktyki.
+* ❓   System maszyn wydobywczych, działek, piecy - Rozbudowa ekonomii i obrony bazy.
+* ❓   Zarządzanie stanami postaci klasy `Character` za pomocą State Machine - Poprawa płynności i złożoności zachowań postaci.
+* ❓   System oświetlenia i ciemności inspirowany **Bullet Echo** - Zwiększenie napięcia i elementu zaskoczenia.
+* ❓   Proceduralne generowanie poziomów - Zapewnienie regrywalności i unikalnych wyzwań.
 
 ## Licencja 📄
 
