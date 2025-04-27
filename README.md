@@ -8,11 +8,11 @@
 - [Cel projektu 🎯](#cel-projektu-)
 - [Stack technologiczny 💻](#stack-technologiczny-)
 - [Mechaniki rozgrywki 🎮](#mechaniki-rozgrywki-)
-- [Interfejs użytkownika (UI) 🎮](#interfejs-użytkownika-)
+- [Interfejs użytkownika (UI) 🎮](#interfejs-użytkownika-ui-)
 - [Klasy postaci 👷‍♂️](#klasy-postaci-%EF%B8%8F)
 - [Architektura kodu 🏗️](#architektura-kodu-%EF%B8%8F)
 - [Diagram UML 🧜‍♀️](#diagram-uml-%EF%B8%8F)
-- [Aktualizacje / Rozwój 🚀](#aktualizacje-)
+- [Aktualizacje / Rozwój 🚀](#aktualizacje--rozwój-)
 - [Licencja 📄](#licencja-)
 
 ## Opis projektu
