@@ -1,4 +1,4 @@
-# Mine Survivors 🚇⛏️ ///
+# Mine Survivors 🚇⛏️
 
 **Mine Survivors** to dynamiczna gra akcji inspirowana tytułami takimi jak *Vampire Survivors* oraz *Brotato*. Akcja gry rozgrywa się w podziemnych korytarzach kopalń, gdzie wcielasz się w górnika eksplorującego tajemnicze tunele, zbierającego surowce oraz odpierającego fale przeciwników. Gra stanowi również świetną okazję do nauki programowania obiektowego i rozwoju portfolio.
 
@@ -8,6 +8,7 @@
 - [Cel projektu 🎯](#cel-projektu-)
 - [Stack technologiczny 💻](#stack-technologiczny-)
 - [Mechaniki rozgrywki 🎮](#mechaniki-rozgrywki-)
+- [Interfejs użytkownika (UI) 🎮](#interfejs-użytkownika-)
 - [Klasy postaci 👷‍♂️](#klasy-postaci-%EF%B8%8F)
 - [Architektura kodu 🏗️](#architektura-kodu-%EF%B8%8F)
 - [Diagram UML 🧜‍♀️](#diagram-uml-%EF%B8%8F)
@@ -42,6 +43,46 @@
 - **Maszyny wydobywcze:** Urządzenia generujące surowce, które przyciągają wrogów. ⚙️
 - **Obrona maszyn:** Fale przeciwników atakują maszyny – wymaga strategicznego podejścia. 🛡️
 - **Eksploracja kopalni:** Decyduj, czy chronić maszyny, czy ryzykować zejście na niższe poziomy, gdzie czekają cenniejsze surowce i trudniejsi przeciwnicy. 🌑
+
+## Interfejs użytkownika (UI) 🎮
+
+Interfejs użytkownika w **Mine Survivors** został zaprojektowany z myślą o intuicyjności i przejrzystości, zapewniając graczowi łatwy dostęp do kluczowych informacji.  W implementacji UI w Godot Engine istotne jest wykorzystanie **scen** dla każdego elementu interfejsu (menu, HUD itp.) oraz **sygnałów** do komunikacji między nimi, co sprzyja modularności i elastyczności.
+
+Główne elementy interfejsu obejmują:
+
+* **Menu Główne:**
+    * Tytuł gry: "Mine Survivors".
+    * Przyciski nawigacyjne:
+        * "Start Game" - Rozpoczęcie nowej rozgrywki.
+        * "Settings" - Dostęp do opcji konfiguracyjnych.
+        * "Exit" - Zakończenie aplikacji.
+* **HUD (Heads-Up Display):**
+    * Prezentacja podstawowych statystyk postaci:
+        * Zdrowie (Health).
+        * Doświadczenie (EXP).
+        * Zasoby (surowce i ich ilości).
+* **Menu Pauzy:**
+    * Wstrzymanie i wznowienie rozgrywki.
+    * Dostępne akcje:
+        * Wznów (Resume).
+        * Ustawienia (Settings).
+        * Powrót do Menu Głównego (Main Menu).
+* **Menu Game Over:**
+    * Wyświetlane po przegranej gracza.
+    * Zawiera:
+        * Komunikat o porażce.
+        * Podsumowanie statystyk (opcjonalne).
+    * Umożliwia:
+        * Powrót do Menu Głównego (Main Menu).
+        * Ponowną próbę (Restart) - opcjonalne.
+* **Menu Ustawień:**
+    * Konfiguracja opcji gry:
+        * Głośność.
+        * Rozdzielczość ekranu.
+        * Sterowanie.
+
+Wykorzystanie scen i sygnałów w Godot umożliwia modułową budowę UI, co ułatwia jego przyszły rozwój i modyfikacje.
+
 
 ## Klasy postaci 👷‍♂️
 
