@@ -318,6 +318,7 @@ Poniżej znajduje się lista aktualnych postępów oraz planowanych kierunków r
 
 ### Lista planowanych zadań
 
+* 🚧   Refaktoryzacja struktury plików
 * ⏳   Utworzenie interfejsów `IAttack` oraz `IDamageable`
 * ⏳   Implementacja **systemu walki** opartego na interfejsach
 * ⏳   Zaimportowanie i konfiguracja *TileSet*
