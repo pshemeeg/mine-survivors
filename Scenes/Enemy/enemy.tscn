@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://crugqb1niwxmv"]
 
 [ext_resource type="Texture2D" uid="uid://dtyryk2hfyudh" path="res://Assets/Art/Enemies/goblin_.png" id="1_mw074"]
-[ext_resource type="Script" uid="uid://bvmftppvlg0uo" path="res://Scenes/Enemy/Enemy.cs" id="1_nvvbs"]
+[ext_resource type="Script" uid="uid://bvmftppvlg0uo" path="res://Scripts/Enemy.cs" id="1_nvvbs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2t2r4"]
 atlas = ExtResource("1_mw074")

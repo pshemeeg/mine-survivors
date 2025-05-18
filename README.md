@@ -52,35 +52,35 @@ Interfejs użytkownika w **Mine Survivors** został zaprojektowany z myślą o i
 Główne elementy interfejsu obejmują:
 
 * **Menu Główne:**
-    * Tytuł gry: "Mine Survivors".
-    * Przyciski nawigacyjne:
-        * "Start Game" - Rozpoczęcie nowej rozgrywki.
-        * "Settings" - Dostęp do opcji konfiguracyjnych.
-        * "Exit" - Zakończenie aplikacji.
+	* Tytuł gry: "Mine Survivors".
+	* Przyciski nawigacyjne:
+		* "Start Game" - Rozpoczęcie nowej rozgrywki.
+		* "Settings" - Dostęp do opcji konfiguracyjnych.
+		* "Exit" - Zakończenie aplikacji.
 * **HUD (Heads-Up Display):**
-    * Prezentacja podstawowych statystyk postaci:
-        * Zdrowie (Health).
-        * Doświadczenie (EXP).
-        * Zasoby (surowce i ich ilości).
+	* Prezentacja podstawowych statystyk postaci:
+		* Zdrowie (Health).
+		* Doświadczenie (EXP).
+		* Zasoby (surowce i ich ilości).
 * **Menu Pauzy:**
-    * Wstrzymanie i wznowienie rozgrywki.
-    * Dostępne akcje:
-        * Wznów (Resume).
-        * Ustawienia (Settings).
-        * Powrót do Menu Głównego (Main Menu).
+	* Wstrzymanie i wznowienie rozgrywki.
+	* Dostępne akcje:
+		* Wznów (Resume).
+		* Ustawienia (Settings).
+		* Powrót do Menu Głównego (Main Menu).
 * **Menu Game Over:**
-    * Wyświetlane po przegranej gracza.
-    * Zawiera:
-        * Komunikat o porażce.
-        * Podsumowanie statystyk (opcjonalne).
-    * Umożliwia:
-        * Powrót do Menu Głównego (Main Menu).
-        * Ponowną próbę (Restart) - opcjonalne.
+	* Wyświetlane po przegranej gracza.
+	* Zawiera:
+		* Komunikat o porażce.
+		* Podsumowanie statystyk (opcjonalne).
+	* Umożliwia:
+		* Powrót do Menu Głównego (Main Menu).
+		* Ponowną próbę (Restart) - opcjonalne.
 * **Menu Ustawień:**
-    * Konfiguracja opcji gry:
-        * Głośność.
-        * Rozdzielczość ekranu.
-        * Sterowanie.
+	* Konfiguracja opcji gry:
+		* Głośność.
+		* Rozdzielczość ekranu.
+		* Sterowanie.
 
 Wykorzystanie scen i sygnałów w Godot umożliwia modułową budowę UI, co ułatwia jego przyszły rozwój i modyfikacje.
 

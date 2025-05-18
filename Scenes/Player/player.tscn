@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://bcsubge2u34ca"]
 
-[ext_resource type="Script" uid="uid://ckirlv1ch0nyd" path="res://Scenes/Player/Player.cs" id="1_fuf5c"]
+[ext_resource type="Script" uid="uid://ckirlv1ch0nyd" path="res://Scripts/Player.cs" id="1_fuf5c"]
 [ext_resource type="Texture2D" uid="uid://nnwnqfdeykve" path="res://Assets/Art/Player/mPlayer_ [dwarf].png" id="1_s88rd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_amsg3"]
