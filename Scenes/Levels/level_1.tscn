@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=4 uid="uid://3lxudcbgtmer"]
 
 [ext_resource type="Texture2D" uid="uid://ckkntlrycb3so" path="res://Assets/Art/World/cave_.png" id="1_tlcug"]
-[ext_resource type="Texture2D" uid="uid://d225qo3mgqk27" path="res://Scenes/Levels/caveObjects_.png" id="2_4dpyx"]
+[ext_resource type="Texture2D" uid="uid://d225qo3mgqk27" path="res://Assets/Art/World/caveObjects_.png" id="2_4dpyx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4dpyx"]
 texture = ExtResource("1_tlcug")
