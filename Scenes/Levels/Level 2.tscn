@@ -55,11 +55,6 @@ texture = ExtResource("1_hkl3f")
 7:4/0 = 0
 8:4/0 = 0
 9:4/0 = 0
-1:5/animation_columns = 4
-1:5/animation_separation = Vector2i(4, 0)
-1:5/0 = 0
-1:5/0/terrain_set = 0
-1:5/0/terrains_peering_bit/bottom_right_corner = 0
 2:5/animation_columns = 4
 2:5/animation_separation = Vector2i(4, 0)
 2:5/0 = 0
@@ -200,6 +195,11 @@ texture = ExtResource("1_hkl3f")
 17:7/0 = 0
 18:7/0 = 0
 19:7/0 = 0
+1:5/animation_columns = 4
+1:5/animation_separation = Vector2i(4, 0)
+1:5/0 = 0
+1:5/0/terrain_set = 0
+1:5/0/terrains_peering_bit/bottom_right_corner = 0
 
 [sub_resource type="TileSet" id="TileSet_glvmx"]
 terrain_set_0/mode = 0
