@@ -1,10 +1,16 @@
 using Godot;
 
 // Klasa reprezentująca przeciwnika, dziedzicząca po Character
-public partial class Enemy : CharacterBody2D
+public partial class Enemy : CharacterBody2D, IDamageable
 {
-    [Export] public int Health { get; set; } = 10;
-    [Export] public int AttackDamage { get; set; } = 10;
+
+
+    [Export] protected float maxHealth = 100f;
+    protected float currentHealth;
+    public float Health => currentHealth;
+    public float MaxHealth => maxHealth;
+    public bool IsAlive => currentHealth > 0;
+
     [Export] public float MovementSpeed { get; set; } = 150;
     // metoda do obliczania movemnetu
     protected void ProcessMovement(Vector2 direction, double delta)
@@ -61,5 +67,14 @@ public partial class Enemy : CharacterBody2D
             // Jeśli gracz nie został znaleziony, przeciwnik stoi w miejscu
             ProcessMovement(Vector2.Zero, delta);
         }
+    }
+    public void TakeDamage(float damage)
+    {
+        currentHealth = -damage;
+    }
+
+    public void Heal(float healAmount)
+    {
+        currentHealth += healAmount;
     }
 }
