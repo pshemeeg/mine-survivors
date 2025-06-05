@@ -1,8 +1,36 @@
 using Godot;
 
 // Klasa reprezentująca przeciwnika, dziedzicząca po Character
-public partial class Enemy : Character
+public partial class Enemy : CharacterBody2D
 {
+    [Export] public int Health { get; set; } = 10;
+    [Export] public int AttackDamage { get; set; } = 10;
+    [Export] public float MovementSpeed { get; set; } = 150;
+    // metoda do obliczania movemnetu
+    protected void ProcessMovement(Vector2 direction, double delta)
+    {
+        AnimatedSprite2D animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+        if (direction == Vector2.Zero)
+        {
+            Velocity = Vector2.Zero;
+            animatedSprite.Animation = "idle";
+        }
+        else
+        {
+            animatedSprite.Animation = "run";
+            if (direction.X < 0)
+            {
+                animatedSprite.FlipH = true;
+            }
+            else
+            {
+                animatedSprite.FlipH = false;
+            }
+            Velocity = direction.Normalized() * MovementSpeed;
+            MoveAndSlide();
+        }
+    }
+
     // Zmienna przechowująca referencję do węzła gracza
     private Player _player;
 
