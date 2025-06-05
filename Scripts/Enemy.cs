@@ -1,7 +1,7 @@
 using Godot;
 
 // Klasa reprezentująca przeciwnika, dziedzicząca po Character
-public partial class Enemy : CharacterBody2D, IDamageable
+public partial class Enemy : CharacterBody2D, IDamageable, IAttack
 {
 
 
@@ -12,6 +12,13 @@ public partial class Enemy : CharacterBody2D, IDamageable
     public bool IsAlive => currentHealth > 0;
 
     [Export] public float MovementSpeed { get; set; } = 150;
+
+    public float AttackDamage => 10;
+
+    public float AttackRange => 50;
+
+    public float AttackCooldown => 0.6F;
+
     // metoda do obliczania movemnetu
     protected void ProcessMovement(Vector2 direction, double delta)
     {
@@ -76,5 +83,15 @@ public partial class Enemy : CharacterBody2D, IDamageable
     public void Heal(float healAmount)
     {
         currentHealth += healAmount;
+    }
+
+    public void Attack(Vector2 targetPosition, IDamageable target = null)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public bool CanAttack()
+    {
+        throw new System.NotImplementedException();
     }
 }
