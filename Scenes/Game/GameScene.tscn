@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://3lxudcbgtmer"]
+[gd_scene load_steps=22 format=4 uid="uid://3lxudcbgtmer"]
 
 [ext_resource type="Texture2D" uid="uid://ckkntlrycb3so" path="res://Assets/Art/World/cave_.png" id="1_kvjn8"]
 [ext_resource type="Script" uid="uid://dpwll14ipurns" path="res://Scripts/Managers/GameManager.cs" id="1_volpv"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://co0n03mmbxdic" path="res://Assets/Art/World/caveStructures_ [fountainPortalBridge].png" id="5_ono4l"]
 [ext_resource type="Texture2D" uid="uid://tuvx3kic4ea4" path="res://Assets/Art/World/railway_.png" id="6_bp37a"]
 [ext_resource type="PackedScene" uid="uid://bae2vhts78hji" path="res://Scenes/Player/Player.tscn" id="7_ivvcw"]
+[ext_resource type="PackedScene" uid="uid://brx1urtvy3ig" path="res://Scenes/Enemies/Goblin.tscn" id="9_un2ny"]
+[ext_resource type="PackedScene" uid="uid://da5htcg4foy4b" path="res://Scenes/Enemies/Hobgoblin.tscn" id="10_j0maa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4dpyx"]
 texture = ExtResource("1_kvjn8")
@@ -3429,3 +3431,9 @@ tile_set = SubResource("TileSet_iixi8")
 
 [node name="Player" parent="." instance=ExtResource("7_ivvcw")]
 position = Vector2(586, 715)
+
+[node name="Goblin" parent="." instance=ExtResource("9_un2ny")]
+position = Vector2(627, 846)
+
+[node name="Hobgoblin" parent="." instance=ExtResource("10_j0maa")]
+position = Vector2(911, 710)
