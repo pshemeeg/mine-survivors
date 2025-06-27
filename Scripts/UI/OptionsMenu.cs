@@ -59,10 +59,10 @@ namespace MineSurvivors.scripts.ui
         // Dostępne rozdzielczości — łatwo modyfikowalne
         private readonly Vector2I[] _availableResolutions =
         [
-            new Vector2I(1280, 720),   // HD
-            new Vector2I(1920, 1080),  // Full HD
-            new Vector2I(2560, 1440),  // QHD
-            new Vector2I(3840, 2160)   // 4K
+            new Vector2I(480, 270),   // HD
+            new Vector2I(960, 540),  // Full HD
+            new Vector2I(1140, 810),  // QHD
+            new Vector2I(1920, 1080)   // 4K
         ];
         
         // Nazwy poziomów trudności
@@ -390,7 +390,10 @@ namespace MineSurvivors.scripts.ui
             if (_resolutionIndex >= 0 && _resolutionIndex < _availableResolutions.Length)
             {
                 var resolution = _availableResolutions[_resolutionIndex];
-                window.Size = resolution;
+                ProjectSettings.SetSetting("display/window/size/viewport_width", resolution.X);
+                ProjectSettings.SetSetting("display/window/size/viewport_height", resolution.Y);
+                ProjectSettings.Save();
+
                 
                 // Wyśrodkuj okno na ekranie
                 var screenSize = DisplayServer.ScreenGetSize();
@@ -486,7 +489,7 @@ namespace MineSurvivors.scripts.ui
             _musicVolume = 0.8f;
             _sfxVolume = 0.9f;
             _fullscreen = false;
-            _resolutionIndex = 1; // 1080p
+            _resolutionIndex = 1;
             _difficultyIndex = 1; // Normal
         }
 

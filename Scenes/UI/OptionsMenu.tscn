@@ -37,7 +37,6 @@ theme_override_constants/separation = 20
 
 [node name="AudioSection" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
 
 [node name="AudioTitle" type="Label" parent="ScrollContainer/VBoxContainer/AudioSection"]
 layout_mode = 2
@@ -51,6 +50,7 @@ layout_mode = 2
 text = "Główna głośność: 100%"
 
 [node name="Slider" type="HSlider" parent="ScrollContainer/VBoxContainer/AudioSection/MasterVolumeContainer"]
+custom_minimum_size = Vector2(200, 30)
 layout_mode = 2
 size_flags_horizontal = 8
 
@@ -62,6 +62,7 @@ layout_mode = 2
 text = "Muzyka: 80%"
 
 [node name="Slider" type="HSlider" parent="ScrollContainer/VBoxContainer/AudioSection/MusicVolumeContainer"]
+custom_minimum_size = Vector2(200, 30)
 layout_mode = 2
 
 [node name="SFXVolumeContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/AudioSection"]
@@ -72,6 +73,7 @@ layout_mode = 2
 text = "Efekty dźwiękowe: 90%"
 
 [node name="Slider" type="HSlider" parent="ScrollContainer/VBoxContainer/AudioSection/SFXVolumeContainer"]
+custom_minimum_size = Vector2(200, 30)
 layout_mode = 2
 
 [node name="GraphicsSection" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
