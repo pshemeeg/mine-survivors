@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="41bd2295-f39d-4949-bc02-568d8a020009" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Scenes/Enemy/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Enemy/Enemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.mine survivors/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.mine survivors/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/Levels/level_1.tscn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/project.godot" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +53,7 @@
     <configuration name="Editor" type="RunExe" factoryName=".NET Executable">
       <option name="EXE_PATH" value="C:/Program Files/Godot/Godot_v4.4.1-stable_mono_win64/Godot_v4.4.1-stable_mono_win64.exe" />
       <option name="PROGRAM_PARAMETERS" value="--path &quot;./&quot; --editor" />
-      <option name="WORKING_DIRECTORY" value="A:\Studia\Programowanie obiektowe\Projekt Godot\mine-survivors" />
+      <option name="WORKING_DIRECTORY" value="A:\mine-survivors" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="ENV_FILE_PATHS" value="" />
@@ -69,7 +71,7 @@
     <configuration name="Player" type="RunExe" factoryName=".NET Executable">
       <option name="EXE_PATH" value="C:/Program Files/Godot/Godot_v4.4.1-stable_mono_win64/Godot_v4.4.1-stable_mono_win64.exe" />
       <option name="PROGRAM_PARAMETERS" value="--path &quot;./&quot;" />
-      <option name="WORKING_DIRECTORY" value="A:\Studia\Programowanie obiektowe\Projekt Godot\mine-survivors" />
+      <option name="WORKING_DIRECTORY" value="A:\mine-survivors" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="ENV_FILE_PATHS" value="" />
@@ -99,6 +101,7 @@
       <workItem from="1745660956480" duration="1656000" />
       <workItem from="1745666946896" duration="30000" />
       <workItem from="1745667217137" duration="342000" />
+      <workItem from="1751052905806" duration="909000" />
     </task>
     <servers />
   </component>
