@@ -1,12 +1,8 @@
-using Godot;
-using System;
-
+namespace MineSurvivors.scripts.interfaces;
 public interface IAttack
 {
-    float AttackDamage { get; }
-    float AttackRange { get; }
-    float AttackCooldown { get; }
-   
-    void Attack(Vector2 targetPosition, IDamageable target = null);
-    bool CanAttack();
+    float Damage { get; }
+    float Cooldown { get; }
+    bool CanAttack { get; }
+    float PerformAttack(IDamageable target);
 }

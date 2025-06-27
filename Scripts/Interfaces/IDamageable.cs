@@ -1,11 +1,8 @@
-using Godot;
-using System;
-
+namespace MineSurvivors.scripts.interfaces;
 public interface IDamageable
 {
-    float Health { get; }
     float MaxHealth { get; }
+    float CurrentHealth { get; }
     bool IsAlive { get; }
     void TakeDamage(float damage);
-    void Heal(float healAmount);
 }
