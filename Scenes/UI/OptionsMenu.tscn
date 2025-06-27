@@ -1,0 +1,131 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtoliyxbusqo0"]
+
+[ext_resource type="Script" uid="uid://dsgrj18pw37ci" path="res://Scripts/UI/OptionsMenu.cs" id="1_xihfp"]
+[ext_resource type="Texture2D" uid="uid://irghilioptni" path="res://Assets/Art/UI/mine_survivors.png" id="2_s4qwj"]
+
+[node name="OptionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xihfp")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_s4qwj")
+expand_mode = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_constants/separation = 20
+
+[node name="AudioSection" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="AudioTitle" type="Label" parent="ScrollContainer/VBoxContainer/AudioSection"]
+layout_mode = 2
+text = "🔊 AUDIO"
+
+[node name="MasterVolumeContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/AudioSection"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/AudioSection/MasterVolumeContainer"]
+layout_mode = 2
+text = "Główna głośność: 100%"
+
+[node name="Slider" type="HSlider" parent="ScrollContainer/VBoxContainer/AudioSection/MasterVolumeContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="MusicVolumeContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/AudioSection"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/AudioSection/MusicVolumeContainer"]
+layout_mode = 2
+text = "Muzyka: 80%"
+
+[node name="Slider" type="HSlider" parent="ScrollContainer/VBoxContainer/AudioSection/MusicVolumeContainer"]
+layout_mode = 2
+
+[node name="SFXVolumeContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/AudioSection"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/AudioSection/SFXVolumeContainer"]
+layout_mode = 2
+text = "Efekty dźwiękowe: 90%"
+
+[node name="Slider" type="HSlider" parent="ScrollContainer/VBoxContainer/AudioSection/SFXVolumeContainer"]
+layout_mode = 2
+
+[node name="GraphicsSection" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="GraphicsTitle" type="Label" parent="ScrollContainer/VBoxContainer/GraphicsSection"]
+layout_mode = 2
+text = "🎮 GRAFIKA"
+
+[node name="ResolutionContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/GraphicsSection"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/GraphicsSection/ResolutionContainer"]
+layout_mode = 2
+text = "Rozdzielczość:"
+
+[node name="OptionButton" type="OptionButton" parent="ScrollContainer/VBoxContainer/GraphicsSection/ResolutionContainer"]
+layout_mode = 2
+
+[node name="FullscreenCheckbox" type="CheckBox" parent="ScrollContainer/VBoxContainer/GraphicsSection"]
+layout_mode = 2
+text = "Pełny ekran"
+
+[node name="GameplaySection" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="GameplayTitle" type="Label" parent="ScrollContainer/VBoxContainer/GameplaySection"]
+layout_mode = 2
+text = "⚔️ ROZGRYWKA"
+
+[node name="DifficultyContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/GameplaySection"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/GameplaySection/DifficultyContainer"]
+layout_mode = 2
+text = "Trudność:"
+
+[node name="OptionButton" type="OptionButton" parent="ScrollContainer/VBoxContainer/GameplaySection/DifficultyContainer"]
+layout_mode = 2
+
+[node name="ButtonSection" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ButtonContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/ButtonSection"]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="ScrollContainer/VBoxContainer/ButtonSection/ButtonContainer"]
+layout_mode = 2
+text = "Powrót"
+
+[node name="ResetButton" type="Button" parent="ScrollContainer/VBoxContainer/ButtonSection/ButtonContainer"]
+layout_mode = 2
+text = "Reset"
+
+[node name="ApplyButton" type="Button" parent="ScrollContainer/VBoxContainer/ButtonSection/ButtonContainer"]
+layout_mode = 2
+text = "Zastosuj"
