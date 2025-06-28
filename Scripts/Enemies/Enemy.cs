@@ -1,6 +1,7 @@
 using Godot;
 using MineSurvivors.scripts.interfaces;
 using MineSurvivors.scripts.player;
+using MineSurvivors.scripts.managers;
 
 namespace MineSurvivors.scripts.enemies;
 
@@ -129,6 +130,9 @@ public partial class Enemy : CharacterBody2D, IDamageable, IAttack
             _sprite.Play("death");
             SetPhysicsProcess(false);
             _sprite.AnimationFinished += QueueFree;
+            // Loose coupling - Enemy nie musi znać szczegółów GameManager
+            GameManager.Instance?.RegisterEnemyKill();
+            GameManager.Instance?.AddExperience(ExperienceReward);
             EmitSignal(SignalName.Died, this);
         }
     }

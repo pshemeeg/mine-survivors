@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://ymjqnhlj6vmy"]
+
+[node name="GameOverMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "KONIEC GRY"
+
+[node name="StatsContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="SurvivalTimeLabel" type="Label" parent="PanelContainer/VBoxContainer/StatsContainer"]
+layout_mode = 2
+
+[node name="EnemiesKilledLabel" type="Label" parent="PanelContainer/VBoxContainer/StatsContainer"]
+layout_mode = 2
+
+[node name="ExperienceGainedLabel" type="Label" parent="PanelContainer/VBoxContainer/StatsContainer"]
+layout_mode = 2
+
+[node name="LevelReachedLabel" type="Label" parent="PanelContainer/VBoxContainer/StatsContainer"]
+layout_mode = 2
+
+[node name="ScoreLabel" type="Label" parent="PanelContainer/VBoxContainer/StatsContainer"]
+layout_mode = 2
+
+[node name="ButtonContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="RestartButton" type="Button" parent="PanelContainer/VBoxContainer/ButtonContainer"]
+layout_mode = 2
+text = "Graj ponownie"
+
+[node name="MainMenuButton" type="Button" parent="PanelContainer/VBoxContainer/ButtonContainer"]
+layout_mode = 2
+text = "Menu Główne"
+
+[node name="QuitButton" type="Button" parent="PanelContainer/VBoxContainer/ButtonContainer"]
+layout_mode = 2
+text = "Wyjście"
