@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://3lxudcbgtmer"]
+[gd_scene load_steps=23 format=4 uid="uid://3lxudcbgtmer"]
 
 [ext_resource type="Texture2D" uid="uid://ckkntlrycb3so" path="res://Assets/Art/World/cave_.png" id="1_kvjn8"]
 [ext_resource type="PackedScene" uid="uid://bwtkwn4o3vcbx" path="res://Scenes/Managers/GameManager.tscn" id="1_un2ny"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://co0n03mmbxdic" path="res://Assets/Art/World/caveStructures_ [fountainPortalBridge].png" id="5_ono4l"]
 [ext_resource type="Texture2D" uid="uid://tuvx3kic4ea4" path="res://Assets/Art/World/railway_.png" id="6_bp37a"]
 [ext_resource type="PackedScene" uid="uid://bae2vhts78hji" path="res://Scenes/Player/Player.tscn" id="7_ivvcw"]
+[ext_resource type="PackedScene" uid="uid://cfm1ppsgahm6m" path="res://Scenes/UI/Ui.tscn" id="9_j0maa"]
 [ext_resource type="PackedScene" uid="uid://brx1urtvy3ig" path="res://Scenes/Enemies/Goblin.tscn" id="9_un2ny"]
 [ext_resource type="PackedScene" uid="uid://da5htcg4foy4b" path="res://Scenes/Enemies/Hobgoblin.tscn" id="10_j0maa"]
 
@@ -3416,6 +3417,8 @@ sources/5 = SubResource("TileSetAtlasSource_rb0md")
 [node name="GameScene" type="Node2D"]
 
 [node name="GameManager" parent="." instance=ExtResource("1_un2ny")]
+
+[node name="UI" parent="GameManager" instance=ExtResource("9_j0maa")]
 
 [node name="Warstwa Dolna" type="TileMapLayer" parent="."]
 position = Vector2(1422, -550)

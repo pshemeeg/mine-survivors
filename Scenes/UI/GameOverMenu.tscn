@@ -1,27 +1,38 @@
-[gd_scene format=3 uid="uid://ymjqnhlj6vmy"]
+[gd_scene load_steps=2 format=3 uid="uid://ymjqnhlj6vmy"]
+
+[ext_resource type="Script" uid="uid://dgslacr1ikmnw" path="res://Scripts/UI/GameOverMenu.cs" id="1_cafdt"]
 
 [node name="GameOverMenu" type="Control"]
+process_mode = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_cafdt")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="TitleLabel" type="Label" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 text = "KONIEC GRY"
 
 [node name="StatsContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="SurvivalTimeLabel" type="Label" parent="PanelContainer/VBoxContainer/StatsContainer"]
 layout_mode = 2
@@ -40,6 +51,8 @@ layout_mode = 2
 
 [node name="ButtonContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
 
 [node name="RestartButton" type="Button" parent="PanelContainer/VBoxContainer/ButtonContainer"]
 layout_mode = 2

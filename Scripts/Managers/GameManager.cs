@@ -63,9 +63,8 @@ namespace MineSurvivors.scripts.managers
         private PauseMenu _pauseMenu;
         private GameOverMenu _gameOverMenu;
         
-        // UI Elements (HUD)
-        private Label _timeLabel;
-        private Label _killCountLabel;
+        // UI Elements (HUD) - type-safe reference
+        private Hud _hud;
         
         #endregion
 
@@ -111,9 +110,16 @@ namespace MineSurvivors.scripts.managers
             _pauseMenu = GetNodeOrNull<PauseMenu>("UI/PauseMenu");
             _gameOverMenu = GetNodeOrNull<GameOverMenu>("UI/GameOverMenu");
             
-            // Znajdź HUD elementy  
-            _timeLabel = GetNodeOrNull<Label>("UI/HUD/TimeLabel");
-            _killCountLabel = GetNodeOrNull<Label>("UI/HUD/KillCountLabel");
+            // Znajdź HUD - type-safe approach
+            _hud = GetNodeOrNull<Hud>("UI/HUD");
+            if (_hud != null)
+            {
+                GD.Print("HUD znaleziony - GameManager będzie aktualizować przez type-safe interface");
+            }
+            else
+            {
+                GD.PrintErr("UWAGA: Nie znaleziono HUD - statystyki nie będą się aktualizować");
+            }
             
             // Walidacja kluczowych komponentów
             ValidateComponents();
@@ -368,21 +374,15 @@ namespace MineSurvivors.scripts.managers
         
         /// <summary>
         /// Hermetyzacja: Aktualizacja UI na podstawie stanu gry
+        /// TYPE-SAFE VERSION: Używa dedykowanego HUD script z proper typing
         /// </summary>
         private void UpdateUI()
         {
-            // Aktualizuj czas
-            if (_timeLabel != null)
+            if (_hud != null)
             {
-                var minutes = (int)(_survivalTime / 60);
-                var seconds = (int)(_survivalTime % 60);
-                _timeLabel.Text = $"Czas: {minutes:D2}:{seconds:D2}";
-            }
-            
-            // Aktualizuj licznik zabójstw
-            if (_killCountLabel != null)
-            {
-                _killCountLabel.Text = $"Wrogów: {_enemiesKilled}";
+                // Type-safe wywołania - kompilator sprawdzi czy metody istnieją
+                _hud.UpdateSurvivalTime(_survivalTime);
+                _hud.UpdateKillCount(_enemiesKilled);
             }
         }
 
@@ -420,12 +420,12 @@ namespace MineSurvivors.scripts.managers
                 TogglePause();
             }
             
-            // Debug restart (tylko podczas developmentu)
-            if (@event.IsActionPressed("restart") && OS.IsDebugBuild())
-            {
-                GD.Print("Debug restart!");
-                StartNewGame();
-            }
+            // Debug restart (tylko podczas developmentu) - wyłączone do czasu dodania action
+            // if (@event.IsActionPressed("restart") && OS.IsDebugBuild())
+            // {
+            //     GD.Print("Debug restart!");
+            //     StartNewGame();
+            // }
         }
 
         #endregion
