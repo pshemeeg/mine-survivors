@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://brx1urtvy3ig"]
+[gd_scene load_steps=26 format=3 uid="uid://brx1urtvy3ig"]
 
 [ext_resource type="Texture2D" uid="uid://dtyryk2hfyudh" path="res://Assets/Art/Enemies/goblin_.png" id="1_fsigs"]
 [ext_resource type="Script" uid="uid://dwbq7my0iw3k8" path="res://Scripts/Enemies/Goblin.cs" id="1_w2psb"]
@@ -33,19 +33,7 @@ region = Rect2(96, 224, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6trl6"]
 atlas = ExtResource("1_fsigs")
-region = Rect2(0, 192, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cbm62"]
-atlas = ExtResource("1_fsigs")
-region = Rect2(32, 192, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yhhi5"]
-atlas = ExtResource("1_fsigs")
 region = Rect2(64, 192, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_f0wnp"]
-atlas = ExtResource("1_fsigs")
-region = Rect2(96, 192, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5b058"]
 atlas = ExtResource("1_fsigs")
@@ -131,15 +119,6 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6trl6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cbm62")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yhhi5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f0wnp")
 }],
 "loop": false,
 "name": &"hurt",
@@ -210,7 +189,7 @@ ExperienceReward = 12.0
 
 [node name="VisualRepresentation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xaq88")
-animation = &"death"
+animation = &"hurt"
 autoplay = "idle"
 
 [node name="PhysicalCollider" type="CollisionShape2D" parent="."]

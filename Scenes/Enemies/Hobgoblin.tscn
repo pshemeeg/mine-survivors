@@ -1,8 +1,7 @@
-[gd_scene load_steps=38 format=3 uid="uid://da5htcg4foy4b"]
+[gd_scene load_steps=34 format=3 uid="uid://da5htcg4foy4b"]
 
 [ext_resource type="Texture2D" uid="uid://c4dwp54nsfw3q" path="res://Assets/Art/Enemies/hobgoblin_.png" id="1_4gsud"]
 [ext_resource type="Script" uid="uid://1dd1ve1ysrxe" path="res://Scripts/Enemies/Hobgoblin.cs" id="1_rfboi"]
-[ext_resource type="Texture2D" uid="uid://dtyryk2hfyudh" path="res://Assets/Art/Enemies/goblin_.png" id="2_rfboi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xmt37"]
 atlas = ExtResource("1_4gsud")
@@ -64,21 +63,9 @@ region = Rect2(64, 224, 32, 32)
 atlas = ExtResource("1_4gsud")
 region = Rect2(96, 224, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qa3x8"]
-atlas = ExtResource("2_rfboi")
-region = Rect2(0, 192, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jfq0b"]
-atlas = ExtResource("2_rfboi")
-region = Rect2(32, 192, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4vafn"]
-atlas = ExtResource("2_rfboi")
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gsud"]
+atlas = ExtResource("1_4gsud")
 region = Rect2(64, 192, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xjk3o"]
-atlas = ExtResource("2_rfboi")
-region = Rect2(96, 192, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t1v6o"]
 atlas = ExtResource("1_4gsud")
@@ -192,16 +179,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qa3x8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jfq0b")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4vafn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xjk3o")
+"texture": SubResource("AtlasTexture_4gsud")
 }],
 "loop": false,
 "name": &"hurt",
@@ -273,10 +251,8 @@ ExperienceReward = 25.0
 
 [node name="VisualRepresentation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xaq88")
-animation = &"charge"
+animation = &"hurt"
 autoplay = "idle"
-frame = 7
-frame_progress = 1.0
 
 [node name="PhysicalCollider" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5)

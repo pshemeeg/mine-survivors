@@ -1,7 +1,8 @@
-[gd_scene load_steps=33 format=3 uid="uid://bae2vhts78hji"]
+[gd_scene load_steps=34 format=3 uid="uid://bae2vhts78hji"]
 
 [ext_resource type="Script" uid="uid://oiaayglxbjda" path="res://Scripts/Player/Player.cs" id="1_ft8w5"]
 [ext_resource type="Texture2D" uid="uid://nnwnqfdeykve" path="res://Assets/Art/Player/mPlayer_ [dwarf].png" id="2_h54ih"]
+[ext_resource type="PackedScene" uid="uid://cm8i7kflxbr5d" path="res://Scenes/Weapons/Bow.tscn" id="3_h54ih"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ude3g"]
 atlas = ExtResource("2_h54ih")
@@ -252,3 +253,5 @@ shape = SubResource("CapsuleShape2D_6rswy")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
+
+[node name="Bow" parent="." instance=ExtResource("3_h54ih")]

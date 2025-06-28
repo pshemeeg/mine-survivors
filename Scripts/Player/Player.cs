@@ -1,5 +1,6 @@
 using Godot;
 using MineSurvivors.scripts.interfaces;
+using MineSurvivors.scripts.weapons;
 
 namespace MineSurvivors.scripts.player;
 
@@ -31,10 +32,11 @@ public partial class Player : CharacterBody2D, IDamageable
     // System doświadczenia i poziomów
     public float Experience { get; private set; }
     public int Level { get; private set; } = 1;
-        
+
     // Komponenty Godot
     private AnimatedSprite2D _sprite;
-        
+    private Bow _bow;
+
     // System uników (dodge roll)
     [ExportGroup("Combat")]
     [Export] private float _rollSpeed = 400f;
@@ -68,6 +70,7 @@ public partial class Player : CharacterBody2D, IDamageable
     {
         CurrentHealth = MaxHealth;
         _sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+        _bow = GetNode<Bow>("Bow");
         AddToGroup("player");
         _sprite.AnimationFinished += OnAnimationFinished;
     }
@@ -89,6 +92,10 @@ public partial class Player : CharacterBody2D, IDamageable
         }
             
         MoveAndSlide();
+        if (_bow.CanAttack && Input.IsActionJustPressed("attack"))
+            {
+            _bow.PerformAttack(null);
+            }
     }
         
     // NOWA METODA: Centralne zarządzanie logiką stanów
