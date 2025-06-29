@@ -39,6 +39,7 @@ layout_mode = 2
 text = "Wznów"
 
 [node name="OptionsButton" type="Button" parent="PanelContainer/VBoxContainer/ButtonContainer"]
+visible = false
 layout_mode = 2
 text = "Opcje
 "

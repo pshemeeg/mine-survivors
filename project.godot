@@ -16,10 +16,14 @@ config/features=PackedStringArray("4.4", "C#", "GL Compatibility")
 boot_splash/bg_color=Color(0.247008, 0.396921, 1, 1)
 config/icon="res://icon.svg"
 
+[autoload]
+
+ScoreManager="*res://Scripts/Managers/ScoreManager.cs"
+
 [display]
 
-window/size/viewport_width=960
-window/size/viewport_height=540
+window/size/viewport_width=480
+window/size/viewport_height=270
 window/size/window_width_override=1920
 window/size/window_height_override=1080
 window/stretch/mode="canvas_items"

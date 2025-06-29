@@ -6,18 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="41bd2295-f39d-4949-bc02-568d8a020009" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.mine survivors/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.mine survivors/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/Game/GameScene.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Game/GameScene.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/Player/Player.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Player/Player.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/UI/GameOverMenu.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/UI/GameOverMenu.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/UI/Ui.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/UI/Ui.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Managers/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addons/godot-git-plugin/win64/~libgit_plugin.windows.editor.x86_64.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/Enemies/Hobgoblin.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Enemies/Hobgoblin.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/UI/PauseMenu.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/UI/PauseMenu.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/UI/GameOverMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/UI/GameOverMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/UI/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/UI/MainMenu.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/project.godot" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DpaMonitoringSettings">
+    <option name="firstShow" value="false" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -31,20 +32,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Executable.Player.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Executable.Player">
     <configuration name="Player GDScript" type="GDSCRIPT_DEBUG_RUN_CONFIGURATION" factoryName="GdScriptRunFactory" show_console_on_std_err="false" show_console_on_std_out="false" port="6006">
       <option name="address" value="127.0.0.1" />
@@ -111,6 +113,8 @@
       <workItem from="1751060665988" duration="2038000" />
       <workItem from="1751083173386" duration="701000" />
       <workItem from="1751084747986" duration="2459000" />
+      <workItem from="1751171527006" duration="1049000" />
+      <workItem from="1751173606025" duration="3217000" />
     </task>
     <servers />
   </component>

@@ -1,5 +1,7 @@
 using Godot;
 
+using MineSurvivors.scripts.managers;
+
 namespace MineSurvivors.scripts.ui
 {
     /// <summary>
@@ -151,14 +153,13 @@ namespace MineSurvivors.scripts.ui
             // Pokaż menu
             Show();
             
-            // Uruchom animację jeśli jest dostępna
-            if (_animationPlayer != null)
-                _animationPlayer.Play("show_stats");
-            
             // Focus na restart dla łatwiejszej nawigacji
             _restartButton?.GrabFocus();
             
             GD.Print($"Game Over! Score: {_currentStats.FinalScore}");
+            
+            //Zapis wyników do pliku
+            SaveScoreAndUpdateTitle();
         }
 
         /// <summary>
@@ -274,25 +275,47 @@ namespace MineSurvivors.scripts.ui
 
         #region Data Persistence - Opcjonalne zarządzanie high scores
         
-        /// <summary>
-        /// Opcjonalna funkcjonalność: Sprawdź czy to nowy rekord
-        /// Hermetyzacja: Logika high score jest ukryta w tej metodzie
-        /// </summary>
-        private bool IsNewHighScore()
+        private void SaveScoreAndUpdateTitle()
         {
-            // TODO: Implementacja systemu high scores
-            // Na razie zawsze false
-            return false;
+            // Pobierz ScoreManager przez Autoload
+            var scoreManager = GetNode<MineSurvivors.scripts.managers.ScoreManager>("/root/ScoreManager");
+            if (scoreManager == null) return;
+    
+            // Sprawdź czy to high score
+            bool isHighScore = scoreManager.IsHighScore(_currentStats.FinalScore);
+    
+            if (isHighScore)
+            {
+                // Dodaj do rankingu
+                int position = scoreManager.AddScore(
+                    _currentStats.SurvivalTime, 
+                    _currentStats.EnemiesKilled, 
+                    _currentStats.LevelReached);
+        
+                if (position > 0)
+                {
+                    // AKTUALIZUJ TITLE LABEL!
+                    UpdateTitleForHighScore(position);
+                }
+            }
         }
 
-        /// <summary>
-        /// Opcjonalna funkcjonalność: Zapisz wynik
-        /// </summary>
-        private void SaveScore()
+        private void UpdateTitleForHighScore(int position)
         {
-            // TODO: Implementacja zapisu wyniku
-            // Można dodać do user://high_scores.save
-            GD.Print($"Zapisywanie wyniku: {_currentStats.FinalScore}");
+            if (_titleLabel == null) return;
+    
+            // Określ message na podstawie pozycji
+            string congratsMessage = position switch
+            {
+                1 => "🏆 NOWY REKORD! 🏆",
+                2 => "🥈 2. MIEJSCE! 🥈", 
+                3 => "🥉 3. MIEJSCE! 🥉",
+                <= 10 => $"🎉 TOP 10! ({position}. miejsce) 🎉",
+                _ => "Game Over" // Fallback
+            };
+    
+            // Ustaw nowy tekst w title label
+            _titleLabel.Text = congratsMessage;
         }
 
         #endregion
@@ -314,21 +337,6 @@ namespace MineSurvivors.scripts.ui
             {
                 OnMainMenuPressed();
             }
-        }
-
-        #endregion
-
-        #region Cleanup
-        
-        public override void _ExitTree()
-        {
-            // Opcjonalnie: zapisz statystyki przed wyjściem
-            if (_currentStats.FinalScore > 0)
-            {
-                SaveScore();
-            }
-            
-            base._ExitTree();
         }
 
         #endregion

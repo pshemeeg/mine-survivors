@@ -25,7 +25,7 @@ namespace MineSurvivors.scripts.ui
         // Ścieżki do scen — łatwo modyfikowalne, ale ukryte przed zewnętrzem
         private const string GameScenePath = "res://Scenes/Game/GameScene.tscn";
         private const string OptionsScenePath = "res://scenes/UI/OptionsMenu.tscn";
-        private const string HighScoresScenePath = "res://scenes/UI/HighScoresMenu.tscn";
+        private const string HighScoresScenePath = "res://Scenes/UI/HighScoresMenu.tscn";
         
         #endregion
 
