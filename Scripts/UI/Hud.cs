@@ -4,8 +4,8 @@ using MineSurvivors.scripts.player;
 namespace MineSurvivors.scripts.ui
 {
     /// <summary>
-    /// Enhanced HUD - zarządzanie wszystkimi elementami interfejsu gry.
-    /// Demonstracja hermetyzacji UI i loose coupling z Player.
+    /// Enhanced HUD z poprawionym paskiem XP.
+    /// Pasek XP teraz ma tekst bezpośrednio na sobie i zapełnia się na fioletowo.
     /// 
     /// Zasady OOP:
     /// - Hermetyzacja: Wszystkie UI elementy są prywatne
@@ -25,9 +25,10 @@ namespace MineSurvivors.scripts.ui
         private ProgressBar _healthBar;
         private ProgressBar _expBar;
         
-        // Health Bar Labels
+        // Health Bar Label (zachowujemy)
         private Label _healthValueLabel; // "100/100"
-        private Label _expValueLabel; // "XP: 450/1000"
+        
+        // USUNIĘTO: _expValueLabel - tekst będzie bezpośrednio na pasku
         
         #endregion
 
@@ -35,14 +36,16 @@ namespace MineSurvivors.scripts.ui
         
         public override void _Ready()
         {
-            GD.Print("Inicjalizacja Enhanced HUD...");
+            GD.Print("Inicjalizacja Enhanced HUD z fioletowym paskiem XP...");
             
             // Znajdź wszystkie komponenty
             FindHudComponents();
             
+            // Skonfiguruj pasek XP
+            SetupExpBar();
             
             // Połącz z Player jeśli istnieje
-            CallDeferred(nameof(ConnectToPlayer));
+            ConnectToPlayer();
             
             GD.Print("Enhanced HUD gotowy!");
         }
@@ -61,18 +64,52 @@ namespace MineSurvivors.scripts.ui
             // Bottom bars (HP, EXP)
             var bottomContainer = GetNode("MarginContainer/VBoxContainer/BottomBars");
             
-            // Health Bar setup
+            // Health Bar setup (bez zmian)
             var healthContainer = bottomContainer.GetNode("HealthContainer");
             _healthBar = healthContainer.GetNode<ProgressBar>("HealthBar");
             _healthValueLabel = healthContainer.GetNode<Label>("HealthValue");
             
-            // Experience Bar setup
-            var expContainer = bottomContainer.GetNode("ExpContainer");
+            // Experience Bar setup - ZMIANA: nie szukamy osobnego labela
+            var expContainer = GetNode("MarginContainer/VBoxContainer/ExpContainer");
             _expBar = expContainer.GetNode<ProgressBar>("ExpBar");
-            _expValueLabel = expContainer.GetNode<Label>("ExpValue");
             
             // Walidacja
             ValidateComponents();
+        }
+
+        /// <summary>
+        /// NOWA METODA: Konfiguracja paska XP
+        /// </summary>
+        private void SetupExpBar()
+        {
+            if (_expBar == null) return;
+
+            // KLUCZOWA ZMIANA: Ustaw kolor tła i wypełnienia paska XP
+            
+            // Fioletowy kolor wypełnienia (Tokyo Night accent)
+            var fillStyleBox = new StyleBoxFlat();
+            fillStyleBox.BgColor = new Color("#BB9AF7"); // Tokyo Night violet
+            fillStyleBox.CornerRadiusTopLeft = 4;
+            fillStyleBox.CornerRadiusTopRight = 4;
+            fillStyleBox.CornerRadiusBottomLeft = 4;
+            fillStyleBox.CornerRadiusBottomRight = 4;
+            
+            // Ciemne tło paska
+            var backgroundStyleBox = new StyleBoxFlat();
+            backgroundStyleBox.BgColor = new Color("#1A1B26"); // Tokyo Night dark
+            backgroundStyleBox.CornerRadiusTopLeft = 4;
+            backgroundStyleBox.CornerRadiusTopRight = 4;
+            backgroundStyleBox.CornerRadiusBottomLeft = 4;
+            backgroundStyleBox.CornerRadiusBottomRight = 4;
+            
+            // Zastosuj style do paska
+            _expBar.AddThemeStyleboxOverride("fill", fillStyleBox);
+            _expBar.AddThemeStyleboxOverride("background", backgroundStyleBox);
+            
+            // WAŻNE: Ustaw sposób wyświetlania tekstu na pasku
+            _expBar.ShowPercentage = false; // Wyłącz domyślny procent
+            
+            GD.Print("Pasek XP skonfigurowany z fioletowym wypełnieniem");
         }
 
         private void ValidateComponents()
@@ -114,7 +151,7 @@ namespace MineSurvivors.scripts.ui
             // Health
             OnPlayerHealthChanged(player.CurrentHealth, player.MaxHealth);
             
-            // Experience (jeśli ma property)
+            // Experience
             OnPlayerExperienceChanged(0f, player.Experience);
             
             // Level
@@ -154,7 +191,7 @@ namespace MineSurvivors.scripts.ui
         #region Signal Handlers - Loose Coupling z Player
         
         /// <summary>
-        /// Event Handler: Zdrowie gracza się zmieniło
+        /// Event Handler: Zdrowie gracza się zmieniło (bez zmian)
         /// </summary>
         private void OnPlayerHealthChanged(float currentHealth, float maxHealth)
         {
@@ -174,30 +211,26 @@ namespace MineSurvivors.scripts.ui
         }
 
         /// <summary>
-        /// Event Handler: Doświadczenie gracza się zmieniło
+        /// Event Handler: Doświadczenie gracza się zmieniło - POPRAWIONA WERSJA
         /// </summary>
         private void OnPlayerExperienceChanged(float gainedExp, float totalExp)
         {
-            if (_expBar != null)
-            {
-                // Oblicz wymagane XP dla obecnego poziomu
-                var currentLevel = (int)(totalExp / 100f) + 1;
-                var expInCurrentLevel = totalExp % 100f;
-                var expNeededForLevel = 100f;
-                
-                _expBar.MaxValue = expNeededForLevel;
-                _expBar.Value = expInCurrentLevel;
-            }
+            if (_expBar == null) return;
+
+            // Oblicz wymagane XP dla obecnego poziomu
+            var currentLevel = (int)(totalExp / 100f) + 1;
+            var expInCurrentLevel = totalExp % 100f;
+            var expNeededForLevel = 100f;
             
-            if (_expValueLabel != null)
-            {
-                var expInLevel = totalExp % 100f;
-                _expValueLabel.Text = $"XP: {expInLevel:F0}/100";
-            }
+            _expBar.MaxValue = expNeededForLevel;
+            _expBar.Value = expInCurrentLevel;
+            
+            // KLUCZOWA ZMIANA: Ustaw tekst bezpośrednio na pasku XP
+            UpdateExpBarText(expInCurrentLevel, expNeededForLevel);
         }
 
         /// <summary>
-        /// Event Handler: Gracz awansował na poziom
+        /// Event Handler: Gracz awansował na poziom (bez zmian)
         /// </summary>
         private void OnPlayerLevelUp(int newLevel)
         {
@@ -210,6 +243,7 @@ namespace MineSurvivors.scripts.ui
             if (_expBar != null)
             {
                 _expBar.Value = 0;
+                UpdateExpBarText(0f, 100f); // Reset tekstu na pasku
             }
             
             // Animacja level up (opcjonalnie)
@@ -218,10 +252,74 @@ namespace MineSurvivors.scripts.ui
 
         #endregion
 
+        #region XP Bar Text Management - NOWA SEKCJA
+        
+        /// <summary>
+        /// NOWA METODA: Aktualizacja tekstu bezpośrednio na pasku XP
+        /// Używa override tekstu w ProgressBar
+        /// </summary>
+        private void UpdateExpBarText(float currentExp, float maxExp)
+        {
+            if (_expBar == null) return;
+            
+            // Stwórz tekst do wyświetlenia na pasku
+            string expText = $"XP: {currentExp:F0}/{maxExp:F0}";
+            
+            // METODA 1: Godot 4 pozwala na custom text w ProgressBar
+            // Ale musimy to zrobić przez theme override
+            
+            // Stwórz label jako child paska XP jeśli nie istnieje
+            var existingLabel = _expBar.GetNodeOrNull<Label>("ExpText");
+            if (existingLabel == null)
+            {
+                CreateExpBarLabel();
+                existingLabel = _expBar.GetNodeOrNull<Label>("ExpText");
+            }
+            
+            // Zaktualizuj tekst
+            if (existingLabel != null)
+            {
+                existingLabel.Text = expText;
+            }
+        }
+        
+        /// <summary>
+        /// NOWA METODA: Tworzenie labela na pasku XP
+        /// </summary>
+        private void CreateExpBarLabel()
+        {
+            if (_expBar == null) return;
+            
+            var expLabel = new Label();
+            expLabel.Name = "ExpText";
+            expLabel.Text = "XP: 0/100";
+            
+            // Pozycjonowanie: wyśrodkowany na pasku
+            expLabel.AnchorLeft = 0f;
+            expLabel.AnchorTop = 0f;
+            expLabel.AnchorRight = 1f;
+            expLabel.AnchorBottom = 1f;
+            expLabel.HorizontalAlignment = HorizontalAlignment.Center;
+            expLabel.VerticalAlignment = VerticalAlignment.Center;
+            
+            // Styl tekstu - biały z cieniem dla czytelności
+            expLabel.AddThemeColorOverride("font_color", new Color(1, 1, 1)); // Biały
+            expLabel.AddThemeColorOverride("font_shadow_color", new Color(0, 0, 0)); // Czarny
+            expLabel.AddThemeConstantOverride("shadow_offset_x", 1);
+            expLabel.AddThemeConstantOverride("shadow_offset_y", 1);
+            
+            // Dodaj jako child paska XP
+            _expBar.AddChild(expLabel);
+            
+            GD.Print("Label tekstu XP utworzony na pasku");
+        }
+        
+        #endregion
+
         #region Visual Effects - Hermetyzacja efektów wizualnych
         
         /// <summary>
-        /// Hermetyzacja: Zmiana koloru paska zdrowia
+        /// Hermetyzacja: Zmiana koloru paska zdrowia (bez zmian)
         /// </summary>
         private void UpdateHealthBarColor(float healthPercent)
         {
@@ -241,7 +339,7 @@ namespace MineSurvivors.scripts.ui
         }
 
         /// <summary>
-        /// Hermetyzacja: Animacja level up
+        /// Hermetyzacja: Animacja level up (bez zmian)
         /// </summary>
         private void AnimateLevelUp()
         {
@@ -258,6 +356,39 @@ namespace MineSurvivors.scripts.ui
             colorTween.TweenProperty(_levelLabel, "modulate", Colors.White, 0.3f);
         }
 
+        #endregion
+
+        #region Process - Dla dodatkowych efektów XP bara
+        
+        public override void _Process(double delta)
+        {
+            // Opcjonalnie: Subtelna animacja fioletowego paska XP
+            if (_expBar != null && _expBar.Value > 0)
+            {
+                AnimateExpBarGlow(delta);
+            }
+        }
+        
+        /// <summary>
+        /// NOWA METODA: Subtelna animacja świecenia paska XP
+        /// </summary>
+        private void AnimateExpBarGlow(double delta)
+        {
+            // Subtelne pulsowanie fioletowego koloru
+            float pulseSpeed = 2.0f;
+            float pulseIntensity = 0.1f;
+            
+            float currentTime = (float)Time.GetUnixTimeFromSystem() * pulseSpeed;
+            float pulse = Mathf.Sin(currentTime) * pulseIntensity;
+            
+            // Modyfikuj odcień fioletowego
+            Color baseColor = new Color("#BB9AF7");
+            Color glowColor = baseColor.Lightened(pulse);
+            
+            // Zastosuj do modulate paska (subtelnie)
+            _expBar.Modulate = new Color(1, 1, 1).Lerp(glowColor, 0.3f);
+        }
+        
         #endregion
 
         #region Cleanup

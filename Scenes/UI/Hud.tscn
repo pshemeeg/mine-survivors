@@ -26,6 +26,17 @@ theme_override_constants/margin_bottom = 20
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
+[node name="ExpContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ExpBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/ExpContainer"]
+custom_minimum_size = Vector2(900, 30)
+layout_mode = 2
+step = 1.0
+show_percentage = false
+
 [node name="TopInfo" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 alignment = 1
@@ -50,6 +61,8 @@ size_flags_vertical = 10
 
 [node name="HealthContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/BottomBars"]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
 
 [node name="HealthBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/BottomBars/HealthContainer"]
 custom_minimum_size = Vector2(200, 30)
@@ -61,16 +74,3 @@ show_percentage = false
 [node name="HealthValue" type="Label" parent="MarginContainer/VBoxContainer/BottomBars/HealthContainer"]
 layout_mode = 2
 text = "100/100"
-
-[node name="ExpContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/BottomBars"]
-layout_mode = 2
-
-[node name="ExpBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/BottomBars/ExpContainer"]
-custom_minimum_size = Vector2(200, 30)
-layout_mode = 2
-step = 1.0
-show_percentage = false
-
-[node name="ExpValue" type="Label" parent="MarginContainer/VBoxContainer/BottomBars/ExpContainer"]
-layout_mode = 2
-text = "XP: 0/100"
