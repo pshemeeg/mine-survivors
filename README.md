@@ -43,7 +43,7 @@ Gra łączy klasyczną mechanikę survival z nowoczesnym systemem progresji post
 
 ### Podstawowe mechaniki
 - **Sterowanie 8-kierunkowe** - płynne poruszanie się po mapie
-- **Automatyczny system walki** - łuk automatycznie strzela do najbliższych wrogów
+- **System walki** - Zróżnicowane typy broni
 - **System uników (dodge roll)** - szybkie unikanie ataków z czasem nietykalności
 - **Progresja postaci** - zdobywanie doświadczenia i awansowanie na wyższe poziomy
 
