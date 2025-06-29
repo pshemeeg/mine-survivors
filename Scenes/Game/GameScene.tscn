@@ -3431,7 +3431,7 @@ sources/5 = SubResource("TileSetAtlasSource_rb0md")
 position = Vector2(72.1974, 35.3967)
 _goblinScene = ExtResource("9_un2ny")
 _hobgoblinScene = ExtResource("10_j0maa")
-_golemScene = ExtResource("9_un2ny")
+_golemScene = ExtResource("12_ono4l")
 _spawnRadius = 200.0
 
 [node name="GameManager" parent="." instance=ExtResource("1_un2ny")]
@@ -3455,53 +3455,5 @@ tile_set = SubResource("TileSet_iixi8")
 position = Vector2(821, 1234)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(2, 2)
+zoom = Vector2(1.5, 1.5)
 position_smoothing_enabled = true
-
-[node name="Goblin" parent="." instance=ExtResource("9_un2ny")]
-position = Vector2(627, 846)
-
-[node name="Hobgoblin" parent="." instance=ExtResource("10_j0maa")]
-position = Vector2(911, 710)
-
-[node name="Goblin2" parent="." instance=ExtResource("9_un2ny")]
-position = Vector2(1039, 796)
-
-[node name="Hobgoblin2" parent="." instance=ExtResource("10_j0maa")]
-position = Vector2(513, 1032)
-
-[node name="Goblin3" parent="." instance=ExtResource("9_un2ny")]
-position = Vector2(1138, 1009)
-
-[node name="Hobgoblin3" parent="." instance=ExtResource("10_j0maa")]
-position = Vector2(563, 764)
-
-[node name="Goblin4" parent="." instance=ExtResource("9_un2ny")]
-position = Vector2(576, 716)
-
-[node name="Hobgoblin4" parent="." instance=ExtResource("10_j0maa")]
-position = Vector2(574, 1136)
-
-[node name="Goblin5" parent="." instance=ExtResource("9_un2ny")]
-position = Vector2(1137, 1132)
-
-[node name="Hobgoblin5" parent="." instance=ExtResource("10_j0maa")]
-position = Vector2(1177, 728)
-
-[node name="Goblin6" parent="." instance=ExtResource("9_un2ny")]
-position = Vector2(1154, 651)
-
-[node name="Hobgoblin6" parent="." instance=ExtResource("10_j0maa")]
-position = Vector2(703, 743)
-
-[node name="Goblin7" parent="." instance=ExtResource("9_un2ny")]
-position = Vector2(875, 656)
-
-[node name="Elite" parent="." instance=ExtResource("12_ono4l")]
-position = Vector2(628, 652)
-
-[node name="Elite2" parent="." instance=ExtResource("12_ono4l")]
-position = Vector2(1074, 594)
-
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(1064, 630)
