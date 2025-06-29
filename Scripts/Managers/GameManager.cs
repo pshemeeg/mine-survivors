@@ -1,36 +1,30 @@
 using Godot;
 using MineSurvivors.scripts.player;
 using MineSurvivors.scripts.ui;
+using MineSurvivors.scripts.managers;
 
 namespace MineSurvivors.scripts.managers
 {
     /// <summary>
-    /// Rozszerzony GameManager - centralny punkt zarządzania grą i UI.
+    /// GameManager - centralny punkt zarządzania grą.
     /// Demonstracja wzorca Singleton i Mediator.
     /// 
-    /// Zasady OOP w działaniu:
+    /// Zasady OOP:
     /// - Singleton: Jedna instancja w całej grze
-    /// - Mediator: Pośredniczy między systemami (Player ↔ UI ↔ Game Logic)
-    /// - Loose Coupling: Systemy nie znają się nawzajem, komunikują przez GameManager
+    /// - Mediator: Pośredniczy między systemami
     /// - Hermetyzacja: Stan gry jest ukryty, dostęp przez publiczne metody
     /// - Separacja odpowiedzialności: Tylko orkiestracja, nie implementacja szczegółów
     /// </summary>
     public partial class GameManager : Node2D
     {
-        #region Singleton Pattern - Jedna instancja w grze
+        #region Singleton Pattern
         
-        /// <summary>
-        /// Singleton instance - zapewnia globalny dostęp do GameManager
-        /// </summary>
         public static GameManager Instance { get; private set; }
         
         #endregion
 
-        #region Game State - Hermetyzacja stanu gry
+        #region Game State
         
-        /// <summary>
-        /// Enum dla stanów gry - czytelne zarządzanie stanem
-        /// </summary>
         public enum GameState
         {
             Playing,
@@ -39,10 +33,9 @@ namespace MineSurvivors.scripts.managers
             MainMenu
         }
         
-        // Prywatny stan gry - hermetyzacja
         private GameState _currentState = GameState.Playing;
         
-        // Statystyki gry - hermetyzacja danych
+        // Statystyki gry
         private float _gameStartTime;
         private float _survivalTime;
         private int _enemiesKilled;
@@ -56,19 +49,17 @@ namespace MineSurvivors.scripts.managers
         
         #endregion
 
-        #region Component References - Loose Coupling
+        #region Component References
         
-        // Referencje do kluczowych komponentów - znajdowane dynamicznie
         private Player _player;
         private PauseMenu _pauseMenu;
         private GameOverMenu _gameOverMenu;
-        
-        // UI Elements (HUD) - type-safe reference
         private Hud _hud;
+        private LevelUpManager _levelUpManager;
         
         #endregion
 
-        #region Initialization - Setup Singleton i referencji
+        #region Initialization
         
         public override void _Ready()
         {
@@ -95,13 +86,9 @@ namespace MineSurvivors.scripts.managers
             GD.Print("Mine Survivors - Gra gotowa!");
         }
 
-        /// <summary>
-        /// Hermetyzacja: Znajdowanie komponentów gry
-        /// Używa GetNodeOrNull dla bezpiecznego dostępu
-        /// </summary>
         private void FindGameComponents()
         {
-            // Znajdź gracza w grupie "player"
+            // Znajdź gracza
             _player = GetTree().GetFirstNodeInGroup("player") as Player;
             if (_player == null)
                 GD.PrintErr("UWAGA: Nie znaleziono gracza w grupie 'player'");
@@ -109,16 +96,17 @@ namespace MineSurvivors.scripts.managers
             // Znajdź UI komponenty
             _pauseMenu = GetNodeOrNull<PauseMenu>("UI/PauseMenu");
             _gameOverMenu = GetNodeOrNull<GameOverMenu>("UI/GameOverMenu");
-            
-            // Znajdź HUD - type-safe approach
             _hud = GetNodeOrNull<Hud>("UI/HUD");
-            if (_hud != null)
+            
+            // Znajdź LevelUpManager
+            _levelUpManager = GetNodeOrNull<LevelUpManager>("LevelUpManager");
+            if (_levelUpManager == null)
             {
-                GD.Print("HUD znaleziony - GameManager będzie aktualizować przez type-safe interface");
+                GD.PrintErr("UWAGA: Nie znaleziono LevelUpManager - system level up nie będzie działać");
             }
             else
             {
-                GD.PrintErr("UWAGA: Nie znaleziono HUD - statystyki nie będą się aktualizować");
+                GD.Print("LevelUpManager znaleziony i połączony");
             }
             
             // Walidacja kluczowych komponentów
@@ -130,32 +118,23 @@ namespace MineSurvivors.scripts.managers
             if (_player == null) GD.PrintErr("BŁĄD: GameManager nie znalazł gracza!");
             if (_pauseMenu == null) GD.PrintErr("UWAGA: Brak PauseMenu - pauza nie będzie działać");
             if (_gameOverMenu == null) GD.PrintErr("UWAGA: Brak GameOverMenu - koniec gry nie będzie działać");
+            if (_hud == null) GD.PrintErr("UWAGA: Brak HUD - statystyki nie będą się aktualizować");
         }
 
-        /// <summary>
-        /// Loose Coupling: Podłączenie sygnałów bez tight coupling
-        /// </summary>
         private void ConnectSignals()
         {
             if (_player != null)
             {
-                // Słuchaj śmierci gracza
                 _player.Died += OnPlayerDied;
-                
-                // Słuchaj zmian w doświadczeniu
                 _player.ExperienceGained += OnExperienceGained;
-                
                 GD.Print("Sygnały gracza podłączone do GameManager");
             }
         }
 
         #endregion
 
-        #region Game Flow Control - Publiczne API do zarządzania grą
+        #region Game Flow Control
         
-        /// <summary>
-        /// Publiczny interfejs: Rozpocznij nową grę
-        /// </summary>
         public void StartNewGame()
         {
             GD.Print("Rozpoczynanie nowej gry...");
@@ -182,14 +161,10 @@ namespace MineSurvivors.scripts.managers
             GD.Print("Nowa gra rozpoczęta!");
         }
 
-        /// <summary>
-        /// Publiczny interfejs: Przełącz pauzę
-        /// Mediator Pattern - GameManager pośredniczy między input a UI
-        /// </summary>
         public void TogglePause()
         {
             if (_currentState == GameState.GameOver)
-                return; // Nie można pauzować po śmierci
+                return;
                 
             if (_currentState == GameState.Playing)
             {
@@ -201,9 +176,6 @@ namespace MineSurvivors.scripts.managers
             }
         }
 
-        /// <summary>
-        /// Publiczny interfejs: Zapauzuj grę
-        /// </summary>
         public void PauseGame()
         {
             if (_currentState != GameState.Playing) return;
@@ -216,16 +188,12 @@ namespace MineSurvivors.scripts.managers
             }
             else
             {
-                // Fallback jeśli nie ma UI
                 GetTree().Paused = true;
             }
             
             GD.Print("Gra zapauzowana przez GameManager");
         }
 
-        /// <summary>
-        /// Publiczny interfejs: Wznów grę
-        /// </summary>
         public void ResumeGame()
         {
             if (_currentState != GameState.Paused) return;
@@ -238,23 +206,18 @@ namespace MineSurvivors.scripts.managers
             }
             else
             {
-                // Fallback
                 GetTree().Paused = false;
             }
             
             GD.Print("Gra wznowiona przez GameManager");
         }
 
-        /// <summary>
-        /// Publiczny interfejs: Zakończ grę (Game Over)
-        /// </summary>
         public void EndGame()
         {
             GD.Print("Kończenie gry...");
             
             ChangeState(GameState.GameOver);
             
-            // Pokaż ekran Game Over z statystykami
             if (_gameOverMenu != null)
             {
                 var playerLevel = _player?.Level ?? 1;
@@ -268,12 +231,8 @@ namespace MineSurvivors.scripts.managers
 
         #endregion
 
-        #region Statistics Management - Hermetyzacja statystyk
+        #region Statistics Management
         
-        /// <summary>
-        /// Publiczny interfejs: Zarejestruj zabicie wroga
-        /// Loose Coupling - Enemy nie musi znać GameManager, może wywołać przez sygnały
-        /// </summary>
         public void RegisterEnemyKill()
         {
             _enemiesKilled++;
@@ -281,14 +240,10 @@ namespace MineSurvivors.scripts.managers
             GD.Print($"Wrogów zabitych: {_enemiesKilled}");
         }
 
-        /// <summary>
-        /// Publiczny interfejs: Dodaj doświadczenie
-        /// </summary>
         public void AddExperience(float amount)
         {
             _totalExperience += amount;
             
-            // Przekaż do gracza jeśli istnieje
             if (_player != null)
             {
                 _player.GainExperience(amount);
@@ -297,11 +252,8 @@ namespace MineSurvivors.scripts.managers
 
         #endregion
 
-        #region Private State Management - Hermetyzacja
+        #region Private State Management
         
-        /// <summary>
-        /// Hermetyzacja: Bezpieczna zmiana stanu gry
-        /// </summary>
         private void ChangeState(GameState newState)
         {
             var oldState = _currentState;
@@ -309,16 +261,11 @@ namespace MineSurvivors.scripts.managers
             
             GD.Print($"Stan gry zmieniony: {oldState} → {newState}");
             
-            // Można dodać logikę dla transitions między stanami
             OnStateChanged(oldState, newState);
         }
 
-        /// <summary>
-        /// Hermetyzacja: Obsługa zmian stanu
-        /// </summary>
         private void OnStateChanged(GameState oldState, GameState newState)
         {
-            // Logika specific dla transitions
             switch (newState)
             {
                 case GameState.Playing:
@@ -330,14 +277,11 @@ namespace MineSurvivors.scripts.managers
                     break;
                     
                 case GameState.GameOver:
-                    GetTree().Paused = true; // Zatrzymaj grę
+                    GetTree().Paused = true;
                     break;
             }
         }
 
-        /// <summary>
-        /// Hermetyzacja: Ukryj wszystkie menu
-        /// </summary>
         private void HideAllMenus()
         {
             _pauseMenu?.Hide();
@@ -346,41 +290,28 @@ namespace MineSurvivors.scripts.managers
 
         #endregion
 
-        #region Signal Handlers - Loose Coupling przez sygnały
+        #region Signal Handlers
         
-        /// <summary>
-        /// Event Handler: Gracz umarł
-        /// Loose Coupling - Player nie musi znać GameManager bezpośrednio
-        /// </summary>
         private void OnPlayerDied()
         {
             GD.Print("GameManager otrzymał sygnał: gracz umarł");
             EndGame();
         }
 
-        /// <summary>
-        /// Event Handler: Gracz zdobył doświadczenie
-        /// </summary>
         private void OnExperienceGained(float amount, float total)
         {
-            // Zaktualizuj wewnętrzne statystyki
             _totalExperience = total;
             UpdateUI();
         }
 
         #endregion
 
-        #region UI Management - Mediator między logiką a UI
+        #region UI Management
         
-        /// <summary>
-        /// Hermetyzacja: Aktualizacja UI na podstawie stanu gry
-        /// TYPE-SAFE VERSION: Używa dedykowanego HUD script z proper typing
-        /// </summary>
         private void UpdateUI()
         {
             if (_hud != null)
             {
-                // Type-safe wywołania - kompilator sprawdzi czy metody istnieją
                 _hud.UpdateSurvivalTime(_survivalTime);
                 _hud.UpdateKillCount(_enemiesKilled);
             }
@@ -388,17 +319,15 @@ namespace MineSurvivors.scripts.managers
 
         #endregion
 
-        #region Game Loop - Aktualizacja statystyk
+        #region Game Loop
         
         public override void _Process(double delta)
         {
-            // Aktualizuj czas tylko podczas gry
             if (_currentState == GameState.Playing)
             {
                 _survivalTime += (float)delta;
                 
-                // Aktualizuj UI co jakiś czas (nie co klatkę dla wydajności)
-                if (Engine.GetProcessFrames() % 60 == 0) // Co sekundę przy 60 FPS
+                if (Engine.GetProcessFrames() % 60 == 0)
                 {
                     UpdateUI();
                 }
@@ -407,34 +336,63 @@ namespace MineSurvivors.scripts.managers
 
         #endregion
 
-        #region Input Handling - Centralna obsługa input'u
+        #region Input Handling
         
-        /// <summary>
-        /// Centralna obsługa input'u - Mediator Pattern
-        /// </summary>
         public override void _Input(InputEvent @event)
         {
-            // Pauza - tylko podczas gry lub pauzy
             if (@event.IsActionPressed("pause") || @event.IsActionPressed("ui_cancel"))
             {
                 TogglePause();
             }
             
-            // Debug restart (tylko podczas developmentu) - wyłączone do czasu dodania action
-            // if (@event.IsActionPressed("restart") && OS.IsDebugBuild())
-            // {
-            //     GD.Print("Debug restart!");
-            //     StartNewGame();
-            // }
+            // Debug - usuń w produkcji
+            if (@event.IsActionPressed("ui_accept") && Input.IsKeyPressed(Key.F1) && OS.IsDebugBuild())
+            {
+                TriggerTestLevelUp();
+            }
         }
 
         #endregion
 
-        #region Cleanup - Zarządzanie zasobami
+        #region Public Utility Methods
+        
+        public bool IsGameActive()
+        {
+            // Sprawdź czy nie ma otwartego menu level up
+            bool levelUpMenuOpen = _levelUpManager?.IsUpgradeMenuOpen ?? false;
+            
+            return _currentState == GameState.Playing && !levelUpMenuOpen;
+        }
+
+        public bool IsGamePaused()
+        {
+            return _currentState == GameState.Paused;
+        }
+
+        public (float survivalTime, int enemiesKilled, float experience) GetGameStats()
+        {
+            return (_survivalTime, _enemiesKilled, _totalExperience);
+        }
+
+        #endregion
+
+        #region Debug Methods - Usuń w produkcji
+        
+        public void TriggerTestLevelUp()
+        {
+            if (OS.IsDebugBuild() && _levelUpManager != null)
+            {
+                _levelUpManager.TriggerLevelUp();
+                GD.Print("Debug: Level up triggered manually");
+            }
+        }
+
+        #endregion
+
+        #region Cleanup
         
         public override void _ExitTree()
         {
-            // Wyczyść Singleton
             if (Instance == this)
             {
                 Instance = null;
@@ -442,35 +400,6 @@ namespace MineSurvivors.scripts.managers
             
             GD.Print("GameManager cleanup completed");
             base._ExitTree();
-        }
-
-        #endregion
-
-        #region Public Utility Methods - Zewnętrzne API
-        
-        /// <summary>
-        /// Publiczny interfejs: Czy gra jest w trakcie?
-        /// </summary>
-        public bool IsGameActive()
-        {
-            return _currentState == GameState.Playing;
-        }
-
-        /// <summary>
-        /// Publiczny interfejs: Czy gra jest zapauzowana?
-        /// </summary>
-        public bool IsGamePaused()
-        {
-            return _currentState == GameState.Paused;
-        }
-
-        /// <summary>
-        /// Publiczny interfejs: Otrzymaj pełne statystyki
-        /// Enkapsulacja - zwraca kopię, nie referencję do prywatnych danych
-        /// </summary>
-        public (float survivalTime, int enemiesKilled, float experience) GetGameStats()
-        {
-            return (_survivalTime, _enemiesKilled, _totalExperience);
         }
 
         #endregion
