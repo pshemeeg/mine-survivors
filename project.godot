@@ -12,9 +12,12 @@ config_version=5
 
 config/name="mine survivors"
 run/main_scene="uid://vs5vmcatqyod"
+run/print_header=false
 config/features=PackedStringArray("4.4", "C#", "GL Compatibility")
-boot_splash/bg_color=Color(0.247008, 0.396921, 1, 1)
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.652994, 0.695023, 0.761897, 1)
+boot_splash/image="uid://irghilioptni"
+config/icon="uid://bs703b00hc2yh"
+boot_splash/minimum_display_time=5
 
 [autoload]
 
