@@ -6,11 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="41bd2295-f39d-4949-bc02-568d8a020009" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.mine survivors/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.mine survivors/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/Enemies/Hobgoblin.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Enemies/Hobgoblin.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/UI/PauseMenu.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/UI/PauseMenu.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/UI/GameOverMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/UI/GameOverMenu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/UI/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/UI/MainMenu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/project.godot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/UI/Hud.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/UI/Hud.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +110,7 @@
       <workItem from="1751083173386" duration="701000" />
       <workItem from="1751084747986" duration="2459000" />
       <workItem from="1751171527006" duration="1049000" />
-      <workItem from="1751173606025" duration="3217000" />
+      <workItem from="1751173606025" duration="4581000" />
     </task>
     <servers />
   </component>

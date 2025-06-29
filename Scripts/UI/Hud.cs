@@ -40,8 +40,9 @@ namespace MineSurvivors.scripts.ui
             // Znajdź wszystkie komponenty
             FindHudComponents();
             
+            
             // Połącz z Player jeśli istnieje
-            ConnectToPlayer();
+            CallDeferred(nameof(ConnectToPlayer));
             
             GD.Print("Enhanced HUD gotowy!");
         }
