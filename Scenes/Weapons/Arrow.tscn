@@ -1,20 +1,20 @@
 [gd_scene load_steps=4 format=3 uid="uid://cyrgysuv7q5ke"]
 
 [ext_resource type="Script" uid="uid://blavtc5xrdayl" path="res://Scripts/Weapons/Arrow.cs" id="1_gi5sg"]
-[ext_resource type="Texture2D" uid="uid://clth5wm3eid43" path="res://Assets/Art/Weapons/projectile.png" id="1_ouxix"]
+[ext_resource type="Texture2D" uid="uid://ciobd57ofgalk" path="res://Assets/Art/Weapons/Arrow.png" id="2_gi5sg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gi5sg"]
-radius = 1.0
+radius = 2.0
 
 [node name="Arrow" type="Area2D"]
 collision_layer = 32
 collision_mask = 4
 script = ExtResource("1_gi5sg")
 
-[node name="bullet" type="Sprite2D" parent="."]
-scale = Vector2(0.0714286, 0.0714286)
-texture = ExtResource("1_ouxix")
+[node name="Arrow" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("2_gi5sg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 0)
+position = Vector2(6, 0)
 shape = SubResource("CircleShape2D_gi5sg")

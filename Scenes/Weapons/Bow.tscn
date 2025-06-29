@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://cm8i7kflxbr5d"]
 
 [ext_resource type="Script" uid="uid://5lhbowf8s6by" path="res://Scripts/Weapons/Bow.cs" id="1_4ecq2"]
-[ext_resource type="Texture2D" uid="uid://hkrkx88rqc54" path="res://Assets/Art/Weapons/pistol.png" id="1_4j8vs"]
 [ext_resource type="PackedScene" uid="uid://cyrgysuv7q5ke" path="res://Scenes/Weapons/Arrow.tscn" id="2_www5h"]
+[ext_resource type="Texture2D" uid="uid://cwby8sby7imjk" path="res://Assets/Art/Weapons/Bow.png" id="3_www5h"]
 
 [node name="Bow" type="Node2D"]
 script = ExtResource("1_4ecq2")
@@ -10,10 +10,9 @@ _arrowSpeed = 500.0
 _arrowScene = ExtResource("2_www5h")
 Cooldown = 0.3
 
-[node name="ShootingPoint" type="Marker2D" parent="."]
-position = Vector2(19, -1)
+[node name="Bow" type="Sprite2D" parent="."]
+position = Vector2(10, -4)
+texture = ExtResource("3_www5h")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(15, 1)
-scale = Vector2(0.18, 0.18)
-texture = ExtResource("1_4j8vs")
+[node name="ShootingPoint" type="Marker2D" parent="."]
+position = Vector2(12, -4)

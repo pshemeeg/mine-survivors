@@ -184,7 +184,7 @@ script = ExtResource("1_w2psb")
 MaxHealth = 40.0
 Damage = 8.0
 AttackCooldown = 1.2
-MoveSpeed = 80.0
+MoveSpeed = 40.0
 ExperienceReward = 12.0
 
 [node name="VisualRepresentation" type="AnimatedSprite2D" parent="."]

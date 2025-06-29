@@ -241,6 +241,7 @@ _rollSpeed = 200.0
 _rollAnimationDuration = 0.6
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -11)
 sprite_frames = SubResource("SpriteFrames_r6t50")
 animation = &"hurt"
 autoplay = "idle"
@@ -248,10 +249,8 @@ frame = 3
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 6)
+position = Vector2(0, -6)
 shape = SubResource("CapsuleShape2D_6rswy")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position_smoothing_enabled = true
-
 [node name="Bow" parent="." instance=ExtResource("3_h54ih")]
+position = Vector2(-2, -2)
