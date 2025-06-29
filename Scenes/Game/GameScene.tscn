@@ -1,5 +1,6 @@
-[gd_scene load_steps=25 format=4 uid="uid://3lxudcbgtmer"]
+[gd_scene load_steps=26 format=4 uid="uid://3lxudcbgtmer"]
 
+[ext_resource type="PackedScene" uid="uid://8kl5gtfxd3ok" path="res://Scenes/Spawner/enemy_spawner.tscn" id="1_bp37a"]
 [ext_resource type="Texture2D" uid="uid://ckkntlrycb3so" path="res://Assets/Art/World/cave_.png" id="1_kvjn8"]
 [ext_resource type="PackedScene" uid="uid://bwtkwn4o3vcbx" path="res://Scenes/Managers/GameManager.tscn" id="1_un2ny"]
 [ext_resource type="Texture2D" uid="uid://tosvv72nwwfr" path="res://Assets/Art/World/cave_ [cliff].png" id="2_volpv"]
@@ -3421,6 +3422,13 @@ sources/5 = SubResource("TileSetAtlasSource_rb0md")
 
 [node name="GameScene" type="Node2D"]
 
+[node name="EnemySpawner" parent="." instance=ExtResource("1_bp37a")]
+position = Vector2(72.1974, 35.3967)
+_goblinScene = ExtResource("9_un2ny")
+_hobgoblinScene = ExtResource("10_j0maa")
+_golemScene = ExtResource("9_un2ny")
+_spawnRadius = 200.0
+
 [node name="GameManager" parent="." instance=ExtResource("1_un2ny")]
 
 [node name="UI" parent="GameManager" instance=ExtResource("9_j0maa")]
@@ -3440,42 +3448,3 @@ tile_set = SubResource("TileSet_iixi8")
 
 [node name="Player" parent="." instance=ExtResource("7_ivvcw")]
 position = Vector2(821, 1234)
-
-[node name="Goblin" parent="." instance=ExtResource("9_un2ny")]
-position = Vector2(627, 846)
-
-[node name="Hobgoblin" parent="." instance=ExtResource("10_j0maa")]
-position = Vector2(911, 710)
-
-[node name="Goblin2" parent="." instance=ExtResource("9_un2ny")]
-position = Vector2(1039, 796)
-
-[node name="Hobgoblin2" parent="." instance=ExtResource("10_j0maa")]
-position = Vector2(513, 1032)
-
-[node name="Goblin3" parent="." instance=ExtResource("9_un2ny")]
-position = Vector2(1138, 1009)
-
-[node name="Hobgoblin3" parent="." instance=ExtResource("10_j0maa")]
-position = Vector2(563, 764)
-
-[node name="Goblin4" parent="." instance=ExtResource("9_un2ny")]
-position = Vector2(576, 716)
-
-[node name="Hobgoblin4" parent="." instance=ExtResource("10_j0maa")]
-position = Vector2(574, 1136)
-
-[node name="Goblin5" parent="." instance=ExtResource("9_un2ny")]
-position = Vector2(1137, 1132)
-
-[node name="Hobgoblin5" parent="." instance=ExtResource("10_j0maa")]
-position = Vector2(1177, 728)
-
-[node name="Goblin6" parent="." instance=ExtResource("9_un2ny")]
-position = Vector2(1154, 651)
-
-[node name="Hobgoblin6" parent="." instance=ExtResource("10_j0maa")]
-position = Vector2(703, 743)
-
-[node name="Goblin7" parent="." instance=ExtResource("9_un2ny")]
-position = Vector2(875, 656)
