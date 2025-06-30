@@ -36,7 +36,7 @@ Gra łączy klasyczną mechanikę survival z nowoczesnym systemem progresji post
 - **Architektura:** Programowanie obiektowe z wykorzystaniem interfejsów i wzorców projektowych
 - **System kontroli wersji:** Git / GitHub
 - **Dokumentacja:** Markdown, komentarze w kodzie zgodne z XML Documentation
-- **Grafika:** 2D top-down pixel art
+- **Grafika:** 2D top-down pixel art, OpenAI Chat GPT
 - **Audio:** Efekty dźwiękowe 16-bit w stylu retro
 
 ## Mechaniki rozgrywki 🎮
