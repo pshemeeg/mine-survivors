@@ -557,6 +557,7 @@ mine-survivors/
 ├── assets/         # Grafiki, dźwięki
 └── project.godot   # Główny plik projektu
 ```
+### Screeny z Projektu
 
 ## Aktualizacje / Rozwój 📈
 
