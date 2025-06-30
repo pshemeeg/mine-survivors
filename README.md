@@ -557,7 +557,7 @@ mine-survivors/
 ├── assets/         # Grafiki, dźwięki
 └── project.godot   # Główny plik projektu
 ```
-## Screeny z Projektu
+## Screeny z Projektu 🎬
 ![image alt](https://github.com/pshemeeg/mine-survivors/blob/4784e2583b25c1e4f0bf88069dab8d9921170694/Menu.png)
 ![image alt](https://github.com/pshemeeg/mine-survivors/blob/4784e2583b25c1e4f0bf88069dab8d9921170694/InGame.png)
 ![image alt](https://github.com/pshemeeg/mine-survivors/blob/4784e2583b25c1e4f0bf88069dab8d9921170694/Enemy.png)
